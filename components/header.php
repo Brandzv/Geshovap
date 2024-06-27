@@ -12,14 +12,14 @@
     <!-- <meta property="og:url" content="https://" /> -->
     <meta property="og:title" content="Gestor de horarios, vacaciones y permisos - La Parroquia de Veracruz" />
     <meta property="og:description" content="Sistema para gestionar horarios, vacaciones y permisos del personal en la Parroquia de Veracruz." />
-    <meta property="og:image" content="img/social-preview.png" />
+    <meta property="og:image" content="img/social-preview.webp" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <!-- <meta property="twitter:url" content="https://" /> -->
     <meta property="twitter:title" content="Gestor de horarios, vacaciones y permisos - La Parroquia de Veracruz" />
     <meta property="twitter:description" content="Sistema para gestionar horarios, vacaciones y permisos del personal en la Parroquia de Veracruz." />
-    <meta property="twitter:image" content="img/social-preview.png" />
+    <meta property="twitter:image" content="img/social-preview.webp" />
     <link rel="icon" href="img/favicon.png" type="image/png">
     <link rel="icon" href="../img/favicon.png" type="image/png">
     <link rel="stylesheet" href="css/styles.css">
