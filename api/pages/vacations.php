@@ -63,13 +63,13 @@
                     <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                        <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="../pages/admin_home.php">
+                        <a class="nav-link d-flex align-items-center gap-2" aria-current="page" href="../pages/admin_home.php">
                             <svg class="bi"><use xlink:href="#house-fill"/></svg>
                             Home
                         </a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link d-flex align-items-center gap-2" href="../pages/vacations.php">
+                        <a class="nav-link d-flex align-items-center gap-2 active" href="../pages/vacations.php">
                             <svg class="bi"><use xlink:href="#file-earmark"/></svg>
                             Vacaciones
                         </a>
@@ -103,52 +103,41 @@
 
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2">Home</h1>
+                    <h1 class="h2">Vacaciones</h1>
                 </div>
 
                 <div class="table-responsive pad-15">
                     <table class="table table--design">
-                        <button type="button" data-bs-toggle="modal" data-bs-target="#createModal">
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#createVacationModal">
                             Agregar
                         </button>
-                        <button type="button" data-bs-toggle="modal" data-bs-target="#editModal">
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#editVacationModal">
                             Modificar
                         </button>
-                        <button type="button" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#deleteVacationModal">
                             Borrar
                         </button>
 
-                        <?php include("../components/createModal.php"); ?>
-                        <?php include("../components/editModal.php"); ?>
-                        <?php include("../components/deleteModal.php"); ?>
                         <thead>
                             <tr>
                                 <th class="width_cells">Empleado</th>
-                                <th class="width_cells">Lunes</th>
-                                <th class="width_cells">Martes</th>
-                                <th class="width_cells">Miércoles</th>
-                                <th class="width_cells">Jueves</th>
-                                <th class="width_cells">Viernes</th>
-                                <th class="width_cells">Sábado</th>
-                                <th class="width_cells">Domingo</th>
+                                <th class="width_cells">Días totales</th>
+                                <th class="width_cells">Disponibles</th>
+                                <th class="width_cells">Días usados</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php 
-                                $sql = "SELECT empleado, lunes, martes, miercoles, jueves, viernes, sabado, domingo	FROM horarios";
+                                $sql = "SELECT empleado, diatotal, disponible, diausado FROM vacaciones";
                                 $resultado = mysqli_query($conecta, $sql);
 
                                 while ($mostrar=mysqli_fetch_array($resultado)) {
                             ?>
                             <tr>
                                 <td class="center_content"><?php echo $mostrar['empleado'] ?></td>
-                                <td class="center_content"><?php echo $mostrar['lunes'] ?></td>
-                                <td class="center_content"><?php echo $mostrar['martes'] ?></td>
-                                <td class="center_content"><?php echo $mostrar['miercoles'] ?></td>
-                                <td class="center_content"><?php echo $mostrar['jueves'] ?></td>
-                                <td class="center_content"><?php echo $mostrar['viernes'] ?></td>
-                                <td class="center_content"><?php echo $mostrar['sabado'] ?></td>
-                                <td class="center_content"><?php echo $mostrar['domingo'] ?></td>
+                                <td class="center_content"><?php echo $mostrar['diatotal'] ?></td>
+                                <td class="center_content"><?php echo $mostrar['disponible'] ?></td>
+                                <td class="center_content"><?php echo $mostrar['diausado'] ?></td>
                             </tr>
                             <?php
                                 }
@@ -158,7 +147,7 @@
                     </table>
                 </div>
 
-                <canvas class="my-4 w-100" id="myChart" width="900" height="205"></canvas>
+
             </main>
         </div>
     </div>

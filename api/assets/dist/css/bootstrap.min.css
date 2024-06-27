@@ -8213,6 +8213,7 @@ fieldset:disabled .btn {
 .bg-body-tertiary {
     --bs-bg-opacity: 1;
     background-color: #282828 !important;
+    height: 94.6vh;
 }
 .bg-opacity-10 {
     --bs-bg-opacity: 0.1;

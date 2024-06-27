@@ -261,6 +261,18 @@ main.table-responsive {
     padding: 10px 20px;
 }
 
+.form-right {
+    display: ruby-text;
+}
+
+.width_cells {
+    width: 125px;
+}
+
+.center_content {
+    align-content: center;
+}
+
 .form__input {
     width: 100%;
     box-sizing: border-box;
@@ -276,6 +288,12 @@ main.table-responsive {
     font-size: 0.9em;
     line-height: 2;
     color: #000;
+}
+
+.form__input-wrapper {
+    display: flex; /* Para que los elementos dentro se alineen en la misma línea */
+    align-items: center; /* Centra verticalmente los elementos */
+    gap: 10px; /* Espacio entre los elementos (ajústalo según tus necesidades) */
 }
 
 .width-100 {
