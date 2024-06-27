@@ -124,11 +124,12 @@
                                 <th class="width_cells">Días totales</th>
                                 <th class="width_cells">Disponibles</th>
                                 <th class="width_cells">Días usados</th>
+                                <th class="width_cells">Primas vacacionales</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php 
-                                $sql = "SELECT empleado, diatotal, disponible, diausado FROM vacaciones";
+                                $sql = "SELECT empleado, diatotal, disponible, diausado, primavacacional FROM vacaciones";
                                 $resultado = mysqli_query($conecta, $sql);
 
                                 while ($mostrar=mysqli_fetch_array($resultado)) {
@@ -138,6 +139,7 @@
                                 <td class="center_content"><?php echo $mostrar['diatotal'] ?></td>
                                 <td class="center_content"><?php echo $mostrar['disponible'] ?></td>
                                 <td class="center_content"><?php echo $mostrar['diausado'] ?></td>
+                                <td class="center_content"><?php echo $mostrar['primavacacional'] ?></td>
                             </tr>
                             <?php
                                 }
@@ -147,6 +149,7 @@
                     </table>
                 </div>
 
+                <canvas class="my-4 w-100" id="myChart" width="900" height="262"></canvas>
 
             </main>
         </div>
