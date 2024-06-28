@@ -22,6 +22,6 @@
     <meta property="twitter:image" content="img/social-preview.webp" />
     <link rel="icon" href="img/favicon.png" type="image/png">
     <link rel="icon" href="../img/favicon.png" type="image/png">
-    <link rel="stylesheet" href="../../public/css/styles.css">
-    <link rel="stylesheet" href="../public/css/styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="./css/styles.css">
 
