@@ -235,7 +235,7 @@ main.table-responsive {
 }
 
 .pad-15 {
-    padding: 15px;
+    padding: 20px;
 }
 
 .h2-form {
@@ -266,7 +266,11 @@ main.table-responsive {
 }
 
 .width_cells {
-    width: 125px;
+    min-width: 123px;
+}
+
+.edit-option {
+    color: #6b6b6b;
 }
 
 .center_content {
@@ -326,4 +330,46 @@ main.table-responsive {
 .center-flex {
     display: flex;
     justify-content: center;
+}
+
+.notFound {
+    text-align: center;
+    z-index: 5;
+    height: 100vh;
+    max-width: 100%;
+    align-content: center;
+}
+
+.notFound_text {
+    font-size: 18px;
+    margin-top: 0;
+}
+
+.notFound_title {
+    font-size: 95px;
+    margin: 0;
+}
+
+.notFound_button {
+    background: #c5873c;
+    padding: 12px;
+    text-decoration: none;
+    border: none;
+    border-radius: 20px;
+    color: #fff;
+    font: 400 16px/2.5 Nunito;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.margin-10 {
+    margin: 0 10px;
+}
+
+.money-style {
+    color: #000;
+    padding-top: 10px;
+    margin: 0;
+    font-weight: bold;
+    padding-left: 10px;
 }
