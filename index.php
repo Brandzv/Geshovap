@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <?php include(__DIR__ . '/components/header.php'); ?>
+        <?php include('./components/header.php'); ?>
         <title>Login | La Parroquia de Veracruz</title>
     </head>
 
