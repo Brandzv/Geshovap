@@ -63,19 +63,19 @@
                     <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                        <a class="nav-link d-flex align-items-center gap-2" aria-current="page" href="../pages/admin_home.php">
+                        <a class="nav-link d-flex align-items-center gap-2" aria-current="page" href="./admin_home.php">
                             <svg class="bi"><use xlink:href="#house-fill"/></svg>
                             Home
                         </a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link d-flex align-items-center gap-2 active" href="../pages/vacations.php">
+                        <a class="nav-link d-flex align-items-center gap-2 active" href="./vacations.php">
                             <svg class="bi"><use xlink:href="#file-earmark"/></svg>
                             Vacaciones
                         </a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link d-flex align-items-center gap-2" href="../pages/permissions.php">
+                        <a class="nav-link d-flex align-items-center gap-2" href="./permissions.php">
                             <svg class="bi"><use xlink:href="#cart"/></svg>
                             Permisos
                         </a>
@@ -85,7 +85,7 @@
 
                     <ul class="nav flex-column mb-auto">
                         <li class="nav-item">
-                        <a class="nav-link d-flex align-items-center gap-2" href="#">
+                        <a class="nav-link d-flex align-items-center gap-2" href="./settings.php">
                             <svg class="bi"><use xlink:href="#gear-wide-connected"/></svg>
                             Configuración
                         </a>
@@ -117,6 +117,10 @@
                         <button type="button" data-bs-toggle="modal" data-bs-target="#deleteVacationModal">
                             Borrar
                         </button>
+
+                        <?php include('../components/createVacationModal.php'); ?>
+                        <?php include('../components/editVacationModal.php'); ?>
+                        <?php include('../components/deleteVacationModal.php'); ?>
 
                         <thead>
                             <tr>
@@ -154,8 +158,9 @@
             </main>
         </div>
     </div>
-<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.2/dist/chart.umd.js" integrity="sha384-eI7PSr3L1XLISH8JdDII5YN/njoSsxfbrkCTnJrzXt+ENP5MOVBxD+l6sEG4zoLp" crossorigin="anonymous"></script><script src="dashboard.js"></script></body>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.2/dist/chart.umd.js" integrity="sha384-eI7PSr3L1XLISH8JdDII5YN/njoSsxfbrkCTnJrzXt+ENP5MOVBxD+l6sEG4zoLp" crossorigin="anonymous"></script><script src="dashboard.js"></script></body>
 </body>
 </html>
