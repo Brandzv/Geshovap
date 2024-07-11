@@ -38,6 +38,13 @@
     <symbol id="list" viewBox="0 0 16 16" Class="symbol-fill">
         <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
     </symbol>
+    <symbol id="three-dots-vertical" viewBox="0 0 16 16">
+        <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
+    </symbol>
+    <symbol id="pencil-square" viewBox="0 0 16 16">
+        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+    </symbol>
     </svg>
 
     <header class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow" data-bs-theme="dark">
@@ -63,19 +70,19 @@
                     <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                        <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="../pages/admin_home.php">
+                        <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="./admin_home.php">
                             <svg class="bi"><use xlink:href="#house-fill"/></svg>
                             Home
                         </a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link d-flex align-items-center gap-2" href="../pages/vacations.php">
+                        <a class="nav-link d-flex align-items-center gap-2" href="./vacations.php">
                             <svg class="bi"><use xlink:href="#file-earmark"/></svg>
                             Vacaciones
                         </a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link d-flex align-items-center gap-2" href="../pages/permissions.php">
+                        <a class="nav-link d-flex align-items-center gap-2" href="./permissions.php">
                             <svg class="bi"><use xlink:href="#cart"/></svg>
                             Permisos
                         </a>
@@ -85,7 +92,7 @@
 
                     <ul class="nav flex-column mb-auto">
                         <li class="nav-item">
-                        <a class="nav-link d-flex align-items-center gap-2" href="#">
+                        <a class="nav-link d-flex align-items-center gap-2" href="./settings.php">
                             <svg class="bi"><use xlink:href="#gear-wide-connected"/></svg>
                             Configuración
                         </a>
@@ -131,11 +138,12 @@
                                 <th class="width_cells">Viernes</th>
                                 <th class="width_cells">Sábado</th>
                                 <th class="width_cells">Domingo</th>
+                                <th><svg class="bi"><use xlink:href="#three-dots-vertical"/></svg></th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php 
-                                $sql = "SELECT empleado, lunes, martes, miercoles, jueves, viernes, sabado, domingo	FROM horarios";
+                                $sql = "SELECT id, empleado, lunes, martes, miercoles, jueves, viernes, sabado, domingo	FROM horarios";
                                 $resultado = mysqli_query($conecta, $sql);
 
                                 while ($mostrar=mysqli_fetch_array($resultado)) {
@@ -149,6 +157,11 @@
                                 <td class="center_content"><?php echo $mostrar['viernes'] ?></td>
                                 <td class="center_content"><?php echo $mostrar['sabado'] ?></td>
                                 <td class="center_content"><?php echo $mostrar['domingo'] ?></td>
+                                <td class="center_content">
+                                    <a class="edit-option" href="editEmployee.php?id=<?php echo $mostrar['id']?>">
+                                        <svg class="bi"><use xlink:href="#pencil-square"/></svg>
+                                    </a>
+                                </td>
                             </tr>
                             <?php
                                 }

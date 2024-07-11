@@ -98,7 +98,7 @@ if (isset($_POST['update'])) {
                 
 				<div class="form__item">
 					<label class="form__label" for="employee">Empleado:</label>
-                    <input class="form__input" type= "text" id="employee" name= "employee-input" value= "<?php echo $employee_get;?>" placeholder= "Actualiza empleado" autocomplete="off" required>
+                    <input class="form__input" type= "text" id="employee" name= "employee-input" value= "<?php echo $employee_get;?>" placeholder= "Actualiza empleado" autocomplete="off" autofocus required>
 				</div>
 
 				<div class="form__item form-right">
