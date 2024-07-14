@@ -122,7 +122,7 @@
                             Modificar
                         </button>
                         <button type="button" data-bs-toggle="modal" data-bs-target="#deleteModal">
-                            Borrar
+                            Eliminar
                         </button>
 
                         <?php include("../components/createModal.php"); ?>

@@ -9,7 +9,6 @@
 		
         #$availible
         #$used
-        #$primavacacional
 
 		# Calcula prima vacacional
 		$dailySalary = $monthlySalary / 30;
