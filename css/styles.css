@@ -102,6 +102,10 @@ body {
     fill: #e4e4e4;
 }
 
+.symbol-fill-dark {
+    fill: #000;
+}
+
 .bi {
     vertical-align: -0.125em;
     fill: currentColor;
@@ -228,9 +232,6 @@ body {
 }
 
 main.table-responsive {
-    width: 70vw;
-    height: 90vh;
-
     overflow: auto;
 }
 
@@ -372,4 +373,24 @@ main.table-responsive {
     margin: 0;
     font-weight: bold;
     padding-left: 10px;
+}
+
+.viewRequestTable {
+    margin: auto;
+    margin-top: 40px;
+    width: fit-content;
+}
+
+td.pad-7-rem {
+    padding: 0.5rem 7rem !important;
+}
+
+.pad-3-rem {
+    padding: 0.5rem 2.5rem !important;
+}
+
+.action-symbol {
+    width: 20px;
+    height: 20px;
+    margin: 0 8px;
 }
