@@ -4,23 +4,22 @@ require_once("../seguridad.php");
 
 $query = "SELECT empleadosolicitud, iniciosolicitud, finsolicitud FROM solicitar WHERE status = 0";
 $result = mysqli_query($conecta, $query);
-
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <?php include('../components/header.php'); ?>
-    <script src="../assets/js/color-modes.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/dashboard/">
-    <!-- Custom styles for this template -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
-    <link href="../css/dashboard.css" rel="stylesheet">
-    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
-    <title>Solicitudes de vacaciones | La Parroquia de Veracruz</title>
-</head>
+    <head>
+        <?php include('../components/header.php'); ?>
+        <script src="../assets/js/color-modes.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+        <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/dashboard/">
+        <!-- Custom styles for this template -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+        <!-- Custom styles for this template -->
+        <link href="../css/dashboard.css" rel="stylesheet">
+        <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+        <title>Solicitudes de vacaciones | La Parroquia de Veracruz</title>
+    </head>
     <body>
         <svg xmlns="http://www.w3.org/2000/svg" width="16" class="d-none">
             <symbol id="cart" viewBox="0 0 16 16" Class="symbol-fill">
