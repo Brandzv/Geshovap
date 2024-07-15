@@ -30,7 +30,7 @@
 
                     <div class="form__item">
                         <label class="form__label" for="monto">Salario mensual:</label>
-                        <input class="form__input" type="number" id="monto" name="salaryInput" minlength="0" maxlength="39" placeholder="Salario mensual" oninput="formatearMonto()" onKeyPress="if(this.value.length==7) return false;" required>
+                        <input class="form__input" type="number" id="monto" name="salaryInput" placeholder="$7,468" oninput="formatearMonto()" onKeyPress="if(this.value.length==7) return false;" required>
                         <p class="money-style" id="montoFormateado"></p>
                     </div>
 
