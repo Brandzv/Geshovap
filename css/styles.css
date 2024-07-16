@@ -262,8 +262,9 @@ main.table-responsive {
     padding: 10px 20px;
 }
 
-.form-right {
-    display: ruby-text;
+.space-between {
+    display: flex;
+    justify-content: space-between;
 }
 
 .width_cells {
@@ -285,8 +286,7 @@ main.table-responsive {
     border: none;
     border-left: 2px solid #999;
     border-radius: 5px;
-    background-color: #fff;
-    color: #000;
+    color-scheme: auto;
 }
 
 .form__label {
@@ -393,4 +393,9 @@ td.pad-7-rem {
     width: 20px;
     height: 20px;
     margin: 0 8px;
+}
+
+.space-between {
+    display: flex;
+    justify-content: space-between;
 }

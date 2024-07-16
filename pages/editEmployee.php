@@ -101,12 +101,15 @@
                         <input class="form__input" type= "text" id="employee" name= "employee-input" value= "<?php echo $employee_get;?>" placeholder= "Actualiza empleado" autocomplete="off" autofocus required>
                     </div>
 
-                    <div class="form__item form-right">
-                        <label for="lunes" class="form__label">Lunes:</label>
-                        <div>
-                            <label for="encargadoLunes">Encargado: </label>
-                            <input id="encargadoLunes" name="input-encargadoLunes" value="(Encargado)" type="checkbox">
+                    <div class="form__item">
+                        <div class="space-between">
+                            <label for="lunes" class="form__label">Lunes:</label>
+                            <div>
+                                <label for="encargadoLunes">Encargado: </label>
+                                <input id="encargadoLunes" name="input-encargadoLunes" value="(Encargado)" type="checkbox">
+                            </div>
                         </div>
+
                         <select class="form__input" id="lunes" name= "lunes-input">
                             <option value="8 AM - 16 PM"<?php if ($lunes_get === '8 AM - 16 PM') echo ' selected'; ?>>8 AM - 16 PM</option>
                             <option value="16 PM - 00 AM"<?php if ($lunes_get === '16 PM - 00 AM') echo ' selected'; ?>>16 PM - 00 AM</option>
@@ -115,12 +118,15 @@
                         
                     </div>
 
-                    <div class="form__item form-right">
-                        <label for="martes" class="form__label">Martes:</label>
-                        <div>
-                            <label id="encargadoMartes">Encargado: </label>
-                            <input id="encargadoMartes" name="input-encargadoMartes" value="(Encargado)" type="checkbox">
+                    <div class="form__item">
+                        <div class="space-between">
+                            <label for="martes" class="form__label">Martes:</label>
+                            <div>
+                                <label id="encargadoMartes">Encargado: </label>
+                                <input id="encargadoMartes" name="input-encargadoMartes" value="(Encargado)" type="checkbox">
+                            </div>
                         </div>
+
                         <select class="form__input" id="martes" name= "martes-input">
                             <option value="8 AM - 16 PM"<?php if ($martes_get === '8 AM - 16 PM') echo ' selected'; ?>>8 AM - 16 PM</option>
                             <option value="16 PM - 00 AM"<?php if ($martes_get === '16 PM - 00 AM') echo ' selected'; ?>>16 PM - 00 AM</option>
@@ -128,12 +134,15 @@
                         </select>
                     </div>
 
-                    <div class="form__item form-right">
-                        <label for="miercoles" class="form__label">Miércoles:</label>
-                        <div>
-                            <label id="encargadoMiercoles">Encargado: </label>
-                            <input id="encargadoMiercoles" name="input-encargadoMiercoles" value="(Encargado)" type="checkbox">
+                    <div class="form__item">
+                        <div class="space-between">
+                            <label for="miercoles" class="form__label">Miércoles:</label>
+                            <div>
+                                <label id="encargadoMiercoles">Encargado: </label>
+                                <input id="encargadoMiercoles" name="input-encargadoMiercoles" value="(Encargado)" type="checkbox">
+                            </div>
                         </div>
+
                         <select class="form__input" id="miercoles" name= "miercoles-input">
                             <option value="8 AM - 16 PM"<?php if ($miercoles_get === '8 AM - 16 PM') echo ' selected'; ?>>8 AM - 16 PM</option>
                             <option value="16 PM - 00 AM"<?php if ($miercoles_get === '16 PM - 00 AM') echo ' selected'; ?>>16 PM - 00 AM</option>
@@ -141,12 +150,15 @@
                         </select>
                     </div>
 
-                    <div class="form__item form-right">
-                        <label for="jueves" class="form__label">Jueves:</label>
-                        <div>
-                            <label for="encargadoJueves">Encargado: </label>
-                            <input id="encargadoJueves" name="input-encargadoJueves" value="(Encargado)" type="checkbox">
+                    <div class="form__item">
+                        <div class="space-between">
+                            <label for="jueves" class="form__label">Jueves:</label>
+                            <div>
+                                <label for="encargadoJueves">Encargado: </label>
+                                <input id="encargadoJueves" name="input-encargadoJueves" value="(Encargado)" type="checkbox">
+                            </div>
                         </div>
+
                         <select class="form__input" id="jueves" name= "jueves-input">
                             <option value="8 AM - 16 PM"<?php if ($jueves_get === '8 AM - 16 PM') echo ' selected'; ?>>8 AM - 16 PM</option>
                             <option value="16 PM - 00 AM"<?php if ($jueves_get === '16 PM - 00 AM') echo ' selected'; ?>>16 PM - 00 AM</option>
@@ -154,12 +166,15 @@
                         </select>
                     </div>
 
-                    <div class="form__item form-right">
-                        <label for="viernes" class="form__label">Viernes:</label>
-                        <div>
-                            <label for="encargadoViernes">Encargado: </label>
-                            <input id="encargadoViernes" name="input-encargadoViernes" value="(Encargado)" type="checkbox">
-                    </div>
+                    <div class="form__item">
+                        <div class="space-between">
+                            <label for="viernes" class="form__label">Viernes:</label>
+                            <div>
+                                <label for="encargadoViernes">Encargado: </label>
+                                <input id="encargadoViernes" name="input-encargadoViernes" value="(Encargado)" type="checkbox">
+                            </div> 
+                        </div>
+
                         <select class="form__input" id="viernes" name="viernes-input">
                             <option value="8 AM - 16 PM"<?php if ($viernes_get === '8 AM - 16 PM') echo ' selected'; ?>>8 AM - 16 PM</option>
                             <option value="16 PM - 00 AM"<?php if ($viernes_get === '16 PM - 00 AM') echo ' selected'; ?>>16 PM - 00 AM</option>
@@ -167,12 +182,15 @@
                         </select>
                     </div>
 
-                    <div class="form__item form-right">
-                        <label for="sabado" class="form__label">Sábado:</label>
-                        <div>
-                            <label for="encargadoSabado">Encargado: </label>
-                            <input id="encargadoSabado" name="input-encargadoSabado" value="(Encargado)" type="checkbox">
-                    </div>
+                    <div class="form__item">
+                        <div class="space-between">
+                            <label for="sabado" class="form__label">Sábado:</label>
+                            <div>
+                                <label for="encargadoSabado">Encargado: </label>
+                                <input id="encargadoSabado" name="input-encargadoSabado" value="(Encargado)" type="checkbox">
+                            </div>
+                        </div>
+                        
                         <select class="form__input" id="sabado" name="sabado-input">
                             <option value="8 AM - 16 PM"<?php if ($sabado_get === '8 AM - 16 PM') echo ' selected'; ?>>8 AM - 16 PM</option>
                             <option value="16 PM - 00 AM"<?php if ($sabado_get === '16 PM - 00 AM') echo ' selected'; ?>>16 PM - 00 AM</option>
@@ -180,12 +198,15 @@
                         </select>
                     </div>
 
-                    <div class="form__item form-right">
-                        <label for="domingo" class="form__label">Domingo:</label>
-                        <div>
-                            <label for="encargadoDomingo">Encargado: </label>
-                            <input id="encargadoDomingo" name="input-encargadoDomingo" value="(Encargado)" type="checkbox">
-                    </div>
+                    <div class="form__item">
+                        <div class="space-between">
+                            <label for="domingo" class="form__label">Domingo:</label>
+                            <div>
+                                <label for="encargadoDomingo">Encargado: </label>
+                                <input id="encargadoDomingo" name="input-encargadoDomingo" value="(Encargado)" type="checkbox">
+                            </div>
+                        </div>
+                        
                         <select class="form__input" id="domingo" name="domingo-input">
                             <option value="8 AM - 16 PM"<?php if ($domingo_get === '8 AM - 16 PM') echo ' selected'; ?>>8 AM - 16 PM</option>
                             <option value="16 PM - 00 AM"<?php if ($domingo_get === '16 PM - 00 AM') echo ' selected'; ?>>16 PM - 00 AM</option>
