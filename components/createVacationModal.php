@@ -9,6 +9,11 @@
             <div class="modal-body width-100">
                 <form action= "../components/saveVacations.php" method="POST">
                     <div class="form__item">
+                        <label class="form__label" for="name">Fecha de ingreso:</label>
+                        <input class="form__input" type="date" id="entryDate" name="dateInput" placeholder="Nombre del empleado" autocomplete="off" required autofocus >
+                    </div>
+
+                    <div class="form__item">
                         <label class="form__label" for="employees">Empleado:</label>
                         <input class="form__input" type="text" id="employeesCreateVacation" name="employeesInput" placeholder="Nombre del empleado" autocomplete="off" required autofocus >
                     </div>
