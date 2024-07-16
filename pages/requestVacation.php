@@ -133,11 +133,14 @@ $result = mysqli_query($conecta, $query);
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php while ($row = mysqli_fetch_array($result)) { ?>
+                                    <?php while ($row = mysqli_fetch_array($result)) { 
+                                        $fechaInicio = date('d-m-Y', strtotime($row['iniciosolicitud']));
+                                        $fechaFin = date('d-m-Y', strtotime($row['finsolicitud']));
+                                    ?>
                                     <tr>
                                         <td class="center_content"><?php echo $row['empleadosolicitud']; ?></td>
-                                        <td class="center_content"><?php echo $row['iniciosolicitud']; ?></td>
-                                        <td class="center_content"><?php echo $row['finsolicitud']; ?></td>
+                                        <td class="center_content"><?php echo $fechaInicio; ?></td>
+                                        <td class="center_content"><?php echo $fechaFin; ?></td>
                                         <td class="center_content">
                                             <a href="../components/checkRequest.php?empleado=<?php echo $row['empleadosolicitud']; ?>&inicio=<?php echo $row['iniciosolicitud']; ?>&fin=<?php echo $row['finsolicitud']; ?>">
                                                 <svg class="bi action-symbol"><use xlink:href="#check"/></svg>
