@@ -235,6 +235,11 @@ main.table-responsive {
     overflow: auto;
 }
 
+.display-content {
+    width: fit-content;
+    display: contents;
+}
+
 .pad-15 {
     padding: 20px;
 }
@@ -265,6 +270,12 @@ main.table-responsive {
 .space-between {
     display: flex;
     justify-content: space-between;
+}
+
+.space-between-gap25 {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
 }
 
 .width_cells {
@@ -365,6 +376,10 @@ main.table-responsive {
 
 .margin-10 {
     margin: 0 10px;
+}
+
+.margin-left20 {
+    margin: 0 0 0 20px;
 }
 
 .money-style {
