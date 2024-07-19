@@ -141,10 +141,11 @@ $result = mysqli_query($conecta, $query);
                                         <td class="center_content"><?php echo $row['empleadosolicitud']; ?></td>
                                         <td class="center_content"><?php echo $fechaInicio; ?></td>
                                         <td class="center_content"><?php echo $fechaFin; ?></td>
-                                        <td class="space-between-gap25">
-                                            <a href="../components/checkRequest.php?empleado=<?php echo $row['empleadosolicitud']; ?>&inicio=<?php echo $row['iniciosolicitud']; ?>&fin=<?php echo $row['finsolicitud']; ?>">
+                                        <td class="center_content">
+                                            <a class="decoration-none" href="../components/checkRequest.php?empleado=<?php echo $row['empleadosolicitud']; ?>&inicio=<?php echo $row['iniciosolicitud']; ?>&fin=<?php echo $row['finsolicitud']; ?>">
                                                 <svg class="bi"><use xlink:href="#check"/></svg>
                                             </a>
+                                            <a style="padding: 0 10px;"></a>
                                             <a href="../components/rejectRequest.php">
                                                 <svg class="bi"><use xlink:href="#ban"/></svg>
                                             </a>
