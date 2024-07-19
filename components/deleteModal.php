@@ -1,5 +1,4 @@
 <?php
-    // Consulta para obtener nombres e IDs de empleados
     $query = "SELECT id, empleado FROM horarios";
     $resultado = $conecta->query($query);
 

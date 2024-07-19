@@ -1,10 +1,12 @@
 <?php
-    require_once("../conexion.php");
+    include("../seguridad.php");
+    include("../conexion.php");
 
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         $selectedEmployeeId = $_POST['id'];
         if (empty($selectedEmployeeId)) {
             header("Location: ../pages/vacations.php");
+            exit;
         }
     }
     /* Validación de ID por método GET */

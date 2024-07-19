@@ -121,7 +121,6 @@
                                     Solicitudes
                                 </button>
                             </a>
-                            
 
                             <?php include('../components/createVacationModal.php'); ?>
                             <?php include('../components/editVacationModal.php'); ?>
@@ -138,7 +137,7 @@
                             </thead>
                             <tbody>
                                 <?php 
-                                    $sql = "SELECT empleado, diatotal, disponible, diausado, primavacacional FROM vacaciones";
+                                    $sql = "SELECT idvacacion, empleado, diatotal, disponible, diausado, primavacacional FROM vacaciones";
                                     $resultado = mysqli_query($conecta, $sql);
 
                                     while ($mostrar=mysqli_fetch_array($resultado)) {
@@ -148,9 +147,13 @@
                                     <td class="center_content"><?php echo $mostrar['diatotal'] ?></td>
                                     <td class="center_content"><?php echo $mostrar['disponible'] ?></td>
                                     <td class="center_content"><?php echo $mostrar['diausado'] ?></td>
-                                    <td class="center_content"><?php echo $mostrar['primavacacional'] ?> <svg class="bi"><use xlink:href="#exclamation-triangle"/></svg></td>
+                                    <td class="center_content">
+                                        <a class="decoration-none" href="../pages/pendingPayments.php?id=<?php echo $mostrar['idvacacion']; ?>">
+                                            <?php echo $mostrar['primavacacional'] ?>
+                                        </a>
+                                    </td>
                                 </tr>
-                                <?php
+                                <?php 
                                     }
                                     mysqli_close($conecta);
                                 ?>

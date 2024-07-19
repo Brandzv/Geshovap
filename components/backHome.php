@@ -1,5 +1,6 @@
 <?php
-    include("../conexion.php");
+    require_once("../seguridad.php");
+    require_once("../conexion.php");
 
     // Consulta para verificar si el usuario es un administrador
     $query = "SELECT idusuario FROM usuarios WHERE idusuario = 'admin'";
@@ -7,12 +8,10 @@
     $resultado = mysqli_query($conecta, $query);
 
     if ($resultado) {
-        // Si existe el usuario con id "admin", redirige a "admin_home.php"
+        // Si es admin
         header("Location: ../pages/admin_home.php");
-        exit;
     } else {
-        // Si no existe el usuario o su id no es "admin", redirige a "home.php"
+        // Si no es admin
         header("Location: ../pages/home.php");
-        exit;
     }
 ?>

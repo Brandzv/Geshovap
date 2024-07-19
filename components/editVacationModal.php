@@ -1,5 +1,4 @@
 <?php
-    // Consulta para obtener nombres e IDs de empleados
     $query = "SELECT idvacacion, empleado, diatotal, primavacacional FROM vacaciones";
     $resultado = $conecta->query($query);
 

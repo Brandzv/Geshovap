@@ -1,11 +1,12 @@
 <?php
+    require_once("../seguridad.php");
     require_once("../conexion.php");
 
     $employee_req = $_GET['empleado'];
     $inicio = $_GET['inicio'];
     $fin = $_GET['fin'];
 
-    // Crea objetos DateTime a partir de las fechas
+    // Formatea a DateTime a partir de las fechas
     $fechaInicio = new DateTime($inicio);
     $fechaFin = new DateTime($fin);
     // Calcula la diferencia en días
@@ -15,7 +16,6 @@
     // Sanea el valor de $employee_req
     $employee_safe = mysqli_real_escape_string($conecta, $employee_req);
 
-    // Consulta SQL para obtener los datos actuales de la tabla "vacaciones"
     $query = "SELECT idvacacion, empleado, diatotal, disponible, diausado, primavacacional FROM vacaciones WHERE empleado LIKE ?";
     $stmt = mysqli_prepare($conecta, $query);
     mysqli_stmt_bind_param($stmt, "s", $employee_safe);
@@ -23,17 +23,14 @@
     $resultado = mysqli_stmt_get_result($stmt);
 
     if ($resultado) {
-        // Obtenemos los datos actuales
         $row = mysqli_fetch_assoc($resultado);
         $dias_totales = $row['diatotal'];
         $dias_disponibles = $row['disponible'];
         $dias_usados = $row['diausado'];
 
-        // Calculamos los nuevos valores
         $updateDias_disponibles = $dias_disponibles - $day_count;
         $updateDias_usados = $dias_usados + $day_count;
 
-        // Consulta SQL para actualizar los datos
         $query_update = "UPDATE vacaciones SET disponible = ?, diausado = ? WHERE empleado LIKE ?";
         $stmt_update = mysqli_prepare($conecta, $query_update);
         mysqli_stmt_bind_param($stmt_update, "iis", $updateDias_disponibles, $updateDias_usados, $employee_safe);
@@ -46,7 +43,7 @@
             mysqli_stmt_bind_param($stmtUpdate_status, "is", $new_status, $employee_safe);
             $resultado_update_status = mysqli_stmt_execute($stmtUpdate_status);
 
-            header ("Location: ../pages/vacations.php");
+            header("Location: ../pages/requestVacation.php");
         } else {
             echo "Error al actualizar: " . mysqli_error($conecta);
         }
@@ -54,6 +51,5 @@
         echo "Error en la consulta: " . mysqli_error($conecta);
     }
 
-    // Cierra la conexión a la base de datos
     mysqli_close($conecta);
 ?>

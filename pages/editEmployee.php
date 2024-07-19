@@ -2,19 +2,17 @@
     require_once("../conexion.php");
     require_once("../seguridad.php");
 
-    // Verifica si se ha enviado el formulario
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         $selectedId = $_GET['id'];
 
-        // Si no se ha seleccionado un empleado, redirige o muestra un mensaje de error
+        // Si no se ha seleccionado un empleado
         if (empty($selectedId)) {
-            echo "Por favor, selecciona un empleado antes de continuar.";
-            // Puedes redirigir al usuario a otra página aquí si lo deseas
             header("Location: ../pages/admin_home.php");
+            exit;
         }
     }
 
-    // Validación del ID por método GET
+    // Validación del ID con método GET
     if (isset($_GET['id'])) {
         $idemployee = $_GET['id'];
         $query = "SELECT id, empleado, lunes, martes, miercoles, jueves, viernes, sabado, domingo FROM horarios WHERE id = '$idemployee'";
@@ -75,11 +73,9 @@
         $sabado = "$hora_sabado $encargado_sabado";
         $domingo = "$hora_domingo $encargado_domingo";
 
-        // Consulta para actualizar los datos del empleado
         $query = "UPDATE horarios SET empleado = '$employee', lunes = '$lunes', martes = '$martes', miercoles = '$miercoles', jueves = '$jueves', viernes = '$viernes', sabado = '$sabado', domingo = '$domingo' WHERE id = $idemployee";
         mysqli_query($conecta, $query);
 
-        // Redirección a la página admin_home.php
         header("Location: ../pages/admin_home.php");
     }
 ?>

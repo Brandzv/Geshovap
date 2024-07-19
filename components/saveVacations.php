@@ -1,5 +1,6 @@
 <?php
-    require_once("../conexion.php");
+    include("../seguridad.php");
+    include("../conexion.php");
 
     /* Validación de datos por método POST */
     if (isset($_POST['save-submit'])) {
@@ -20,8 +21,8 @@
             $yearsElapsed--;
         }
 
-        /* Establece un mínimo de 12 días de vacaciones */
-        $vacationDays = max(12, $vacationDays);
+        /* Inicializa la variable $vacationDays */
+        $vacationDays = 12; // Mínimo de 12 días de vacaciones
 
         /* Obtiene los días de vacaciones según los años transcurridos */
         if ($yearsElapsed >= 1 && $yearsElapsed <= 5) {
@@ -45,7 +46,29 @@
         $query = "INSERT INTO vacaciones(empleado, diatotal, disponible, primavacacional, fechaingreso) VALUES ('$employee', '$vacationDays', '$availibleDays', '$VacationBonus', '$entryDate')";
         $resultado = mysqli_query($conecta, $query);
 
+        /* Inserta en la tabla pendientes */
+        $roundedYears = $yearsElapsed;
+
+        for ($i = 1; $i <= $roundedYears; $i++) {
+            /* Calcula la prima vacacional para cada año */
+            $annualVacationDays = 12; // Mínimo de 12 días de vacaciones
+            if ($i >= 1 && $i <= 5) {
+                $annualVacationDays += ($i - 1) * 2;
+            } elseif ($i >= 6 && $i <= 10) {
+                $annualVacationDays = 22;
+            } elseif ($i >= 11 && $i <= 15) {
+                $annualVacationDays = 24;
+            } elseif ($i >= 16 && $i <= 20) {
+                $annualVacationDays = 26;
+            } elseif ($i >= 21 && $i <= 25) {
+                $annualVacationDays = 28;
+            }
+
+            $annualVacationBonus = ($dailySalary * $annualVacationDays) / 4;
+            $queryPendientes = "INSERT INTO pendientes(empleadopendiente, primavacacionalpendiente, añopendiente) VALUES ('$employee', '$annualVacationBonus', '$i')";
+            $resultadoPendientes = mysqli_query($conecta, $queryPendientes);
+        }
+
         header("Location: ../pages/vacations.php");
-        exit;
     }
 ?>

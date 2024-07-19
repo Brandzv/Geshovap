@@ -272,12 +272,6 @@ main.table-responsive {
     justify-content: space-between;
 }
 
-.space-between-gap25 {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-}
-
 .width_cells {
     min-width: 123px;
 }
@@ -307,9 +301,9 @@ main.table-responsive {
 }
 
 .form__input-wrapper {
-    display: flex; /* Para que los elementos dentro se alineen en la misma línea */
-    align-items: center; /* Centra verticalmente los elementos */
-    gap: 10px; /* Espacio entre los elementos (ajústalo según tus necesidades) */
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .width-100 {
@@ -380,6 +374,11 @@ main.table-responsive {
 
 .margin-left20 {
     margin: 0 0 0 20px;
+}
+
+.decoration-none {
+    text-decoration: none;
+    color: #000;
 }
 
 .money-style {

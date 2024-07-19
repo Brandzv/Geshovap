@@ -1,5 +1,6 @@
 <?php
-    include_once("../conexion.php");
+    include("../seguridad.php");
+    include("../conexion.php");
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $selectedEmployeeId = $_POST['editVacEmployees'];
@@ -58,6 +59,5 @@
         mysqli_query($conecta, $query);
 
         header("Location: ../pages/vacations.php");
-        exit;
     }
 ?>
