@@ -6,7 +6,6 @@
         $selectedEmployeeId = $_POST['editVacEmployees'];
         if (empty($selectedEmployeeId)) {
             header("Location: ../pages/vacations.php");
-            exit;
         }
     }
 

@@ -6,7 +6,6 @@
         $selectedEmployeeId = $_POST['id'];
         if (empty($selectedEmployeeId)) {
             header("Location: ../pages/vacations.php");
-            exit;
         }
     }
     /* Validación de ID por método GET */

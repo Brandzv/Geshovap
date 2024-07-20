@@ -8,7 +8,6 @@
         // Si no se ha seleccionado un empleado
         if (empty($selectedId)) {
             header("Location: ../pages/admin_home.php");
-            exit;
         }
     }
 
