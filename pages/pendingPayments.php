@@ -2,8 +2,13 @@
     require_once("../conexion.php");
     require_once("../seguridad.php");
 
-    if (isset($_GET['id'])) {
-        $query = "SELECT idpendiente, empleadopendiente, primavacacionalpendiente, añopendiente FROM pendientes";
+    $result = null;
+
+    if (isset($_GET['empleado'])) {
+        $pendingEmployee = $_GET['empleado'];
+
+        // Asegurarse de que $pendingEmployee esté entre comillas simples en la consulta
+        $query = "SELECT idpendiente, empleadopendiente, primavacacionalpendiente, añopendiente FROM pendientes WHERE empleadopendiente = '$pendingEmployee'";
         $result = mysqli_query($conecta, $query);
     }
 ?>
@@ -130,7 +135,9 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php while ($row = mysqli_fetch_array($result)) { ?>
+                                <?php
+                                if ($result) {
+                                    while ($row = mysqli_fetch_array($result)) { ?>
                                 <tr>
                                     <td class="center_content"><?php echo $row['empleadopendiente']; ?></td>
                                     <td class="center_content"><?php echo $row['primavacacionalpendiente']; ?></td>
@@ -141,7 +148,7 @@
                                         </a>
                                     </td>
                                 </tr>
-                                <?php } ?>
+                                <?php } } ?>
                             </tbody>
                         </table>
                     </div>
