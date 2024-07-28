@@ -1,5 +1,10 @@
-<?php require_once("../seguridad.php");?>
-<?php require_once("../conexion.php");?>
+<?php
+require_once("../seguridad.php");
+require_once("../conexion.php");
+
+$query = "SELECT idpermiso, empleadopermiso, tipopermiso, descripcionpermiso, iniciopermiso, finpermiso FROM permisos WHERE status = 0";
+$resultado = mysqli_query($conecta, $query);
+?>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -32,6 +37,16 @@
             </symbol>
             <symbol id="list" viewBox="0 0 16 16" Class="symbol-fill">
                 <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+            </symbol>
+            <symbol id="check" viewBox="0 0 16 16" Class="symbol-fill-dark">
+                <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+                <path d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z"/>
+            </symbol>
+            <symbol id="ban" viewBox="0 0 16 16" Class="symbol-fill-dark">
+                <path d="M15 8a6.97 6.97 0 0 0-1.71-4.584l-9.874 9.875A7 7 0 0 0 15 8M2.71 12.584l9.874-9.875a7 7 0 0 0-9.874 9.874ZM16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0"/>
+            </symbol>
+            <symbol id="arrow-left" viewBox="0 0 16 16" Class="symbol-fill">
+                <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
             </symbol>
         </svg>
         <header class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow" data-bs-theme="dark">
@@ -100,7 +115,44 @@
                         <h1 class="h2">Permisos</h1>
                     </div>
 
-                    <canvas class="my-4 w-100" id="myChart" width="900" height="350"></canvas>
+                    <div class="table-responsive pad-15">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th class="center_content">Empleado</th>
+                                    <th class="center_content">Tipo de permiso</th>
+                                    <th class="center_content">Descripción</th>
+                                    <th class="center_content">Inicio</th>
+                                    <th class="center_content">Fin</th>
+                                    <th class="center_content">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php while ($row = mysqli_fetch_array($resultado)) { 
+                                ?>
+                                <tr>
+                                    <td class="center_content"><?php echo $row['empleadopermiso'];?></td>
+                                    <td class="center_content"><?php echo $row['tipopermiso'];?></td>
+                                    <td class="center_content"><?php echo $row['descripcionpermiso'];?>
+                                    <td class="center_content"><?php echo $row['iniciopermiso'];?>
+                                    <td class="center_content"><?php echo $row['finpermiso'];?>
+                                    <td class="center_content">
+                                        <a class="decoration-none" href="../components/checkPermission.php?idpermiso=<?php echo $row['idpermiso']; ?>">
+                                            <svg class="bi"><use xlink:href="#check"/></svg>
+                                        </a>
+                                        <a style="padding: 0 10px;"></a>
+                                        <a href="../components/rejectPermission.php?idpermiso=<?php echo $row['idpermiso']; ?>">
+                                            <svg class="bi"><use xlink:href="#ban"/></svg>
+                                        </a>
+                                    </td>
+                                <?php
+                                }
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <canvas class="my-4 w-100" id="myChart" width="900" height="307"></canvas>
 
                 </main>
             </div>
