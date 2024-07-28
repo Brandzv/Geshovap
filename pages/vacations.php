@@ -148,7 +148,7 @@
                                     <td class="center_content"><?php echo $mostrar['disponible'] ?></td>
                                     <td class="center_content"><?php echo $mostrar['diausado'] ?></td>
                                     <td class="center_content">
-                                        <a class="decoration-none" href="../pages/pendingPayments.php?id=<?php echo $mostrar['idvacacion']; ?>">
+                                        <a class="decoration-none" href="../pages/pendingPayments.php?empleado=<?php echo $mostrar['empleado']; ?>">
                                             <?php echo $mostrar['primavacacional'] ?>
                                         </a>
                                     </td>
