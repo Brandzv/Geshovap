@@ -9,13 +9,23 @@
             <div class="modal-body width-100">
                 <form action= "../components/saveVacations.php" method="POST">
                     <div class="form__item">
-                        <label class="form__label" for="employees">Empleado:</label>
+                        <label class="form__label" for="employeesCreateVacation">Empleado:</label>
                         <input class="form__input" type="text" id="employeesCreateVacation" name="employeesInput" placeholder="Nombre del empleado" autocomplete="off" required autofocus >
                     </div>
 
                     <div class="form__item">
-                        <label class="form__label" for="name">Fecha de ingreso:</label>
+                        <label class="form__label" for="entryDate">Fecha de ingreso:</label>
                         <input class="form__input" type="date" id="entryDate" name="dateInput" placeholder="Nombre del empleado" autocomplete="off" required autofocus >
+                    </div>
+
+                    <div class="form__item">
+                        <label class="form__label" for="categoryCreateVac">Categoría</label>
+                        <select class="form__input" name="categoryInput" id="categoryCreateVac" required>
+                            <option value="" disabled selected>Seleccione una opción</option>
+                            <option value="Administración">Administración</option>
+                            <option value="Cocina">Cocina</option>
+                            <option value="Servicio">Servicio</option>
+                        </select>
                     </div>
 
                     <div class="form__item">

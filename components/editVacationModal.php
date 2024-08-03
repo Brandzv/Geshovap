@@ -18,7 +18,7 @@
             <div class="modal-body">
                 <form action="../components/editVacation.php" method="post">
                     <div class="form__item">
-                        <label class="form__label" for="employeesEditVacation">Empleado:</label>
+                        <label class="form__label" for="editVacEmployees">Empleado:</label>
                         <select class="form__input" id="editVacEmployees" name="editVacEmployees">
                                 <option value="" disabled selected>Selecciona un empleado</option>
                                 <?php foreach ($empleados as $id => $nombre) : ?>
@@ -28,7 +28,17 @@
                     </div>
 
                     <div class="form__item">
-                        <label class="form__label" for="editVacSalaryInput">Salario mensual:</label>
+                        <label class="form__label" for="editCategoryVac">Categoría</label>
+                        <select class="form__input" name="editCategoryVac" id="editCategoryVac" required>
+                            <option value="" disabled selected>Seleccione una opción</option>
+                            <option value="Administración">Administración</option>
+                            <option value="Cocina">Cocina</option>
+                            <option value="Servicio">Servicio</option>
+                        </select>
+                    </div>
+
+                    <div class="form__item">
+                        <label class="form__label" for="editMonto">Salario mensual:</label>
                         <input class="form__input" type="number" id="editMonto" name="editVacSalaryInput" placeholder="$7,468" oninput="formatearMontoEdit()" onKeyPress="if(this.value.length==7) return false;" required>
                         <p class="money-style" id="editMontoFormateado"></p>
                     </div>

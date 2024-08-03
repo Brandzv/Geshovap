@@ -5,8 +5,10 @@
     /* Validación de datos por método POST */
     if (isset($_POST['save-submit'])) {
         $employee = $_POST['employeesInput'];
-        $monthlySalary = $_POST['salaryInput'];
         $entryDate = $_POST['dateInput'];
+        $category = $_POST['categoryInput'];
+        $monthlySalary = $_POST['salaryInput'];
+        
         $currentDate = date('Y-m-d');
         /* Formatea la fecha a yyyy/mm/dd */
         $formatEntryDate = strtotime($entryDate);
@@ -43,7 +45,7 @@
         $dailySalary = $monthlySalary / 30;
         $VacationBonus = ($dailySalary * $vacationDays) / 4;
 
-        $query = "INSERT INTO vacaciones(empleado, diatotal, disponible, primavacacional, fechaingreso) VALUES ('$employee', '$vacationDays', '$availibleDays', '$VacationBonus', '$entryDate')";
+        $query = "INSERT INTO vacaciones(empleado, categoria, diatotal, disponible, primavacacional, fechaingreso) VALUES ('$employee', '$category', '$vacationDays', '$availibleDays', '$VacationBonus', '$entryDate')";
         $resultado = mysqli_query($conecta, $query);
 
         /* Inserta en la tabla pendientes */

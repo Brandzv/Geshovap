@@ -49,12 +49,14 @@
         $editAvailibleDays = $editVacationDays;
         $editUsedDays = 0;
 
+        $category = $_POST["editCategoryVac"];
+
         /* Calcula prima vacacional */
         $editMonthlySalary = $_POST["editVacSalaryInput"];
         $editDailySalary = $editMonthlySalary / 30;
         $editVacationBonus = ($editDailySalary * $editVacationDays) / 4;
 
-        $query = "UPDATE vacaciones SET diatotal = $editVacationDays, disponible = $editAvailibleDays, diausado = $editUsedDays, primavacacional = $editVacationBonus WHERE idvacacion = $idvacation";
+        $query = "UPDATE vacaciones SET categoria = '$category', diatotal = $editVacationDays, disponible = $editAvailibleDays, diausado = $editUsedDays, primavacacional = $editVacationBonus WHERE idvacacion = $idvacation";
         mysqli_query($conecta, $query);
 
         header("Location: ../pages/vacations.php");
