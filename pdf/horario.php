@@ -1,6 +1,7 @@
 <?php
 require('../fpdf186/fpdf.php');
 require_once('../conexion.php');
+require_once('../seguridad.php');
 
 class PDF extends FPDF
 {
