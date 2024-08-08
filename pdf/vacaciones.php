@@ -1,6 +1,7 @@
 <?php
 require('../fpdf186/fpdf.php');
 require_once('../conexion.php');
+require_once('../seguridad.php');
 
 class PDF extends FPDF
 {
@@ -25,7 +26,7 @@ class PDF extends FPDF
         $this->SetFont('Arial', 'B', 10);
 
         // Datos del empleado
-        $this->Cell(0, 7, mb_convert_encoding('DATOS DEL EMPLEADO', "ISO-8859-1", "UTF-8"), 1, 1, 'C'); // Titulo
+        $this->Cell(0, 7, mb_convert_encoding('DATOS DEL EMPLEADO', "ISO-8859-1", "UTF-8"), 1, 1, 'C');
 
         $this->SetFont('Arial', '', 10);
         $this->Cell(95, 7, mb_convert_encoding('EMPLEADO: ' . $empleado['empleado'], "ISO-8859-1", "UTF-8"), 1);
@@ -52,7 +53,7 @@ class PDF extends FPDF
 
         // Datos de vacaciones
         $this->SetFont('Arial', 'B', 10);
-        $this->Cell(0, 7, mb_convert_encoding('DATOS DE VACACIONES', "ISO-8859-1", "UTF-8"), 1, 1, 'C'); // Titulo
+        $this->Cell(0, 7, mb_convert_encoding('DATOS DE VACACIONES', "ISO-8859-1", "UTF-8"), 1, 1, 'C');
 
         $this->SetFont('Arial', '', 10);
         $this->Cell(95, 7, mb_convert_encoding('AÑO CORRESPONDIENTE: ' . $corresponding_year, "ISO-8859-1", "UTF-8"), 1);
@@ -68,11 +69,9 @@ class PDF extends FPDF
         $this->MultiCell(0, 5, mb_convert_encoding("Por medio del presente, hago constar que disfrutaré de mis vacaciones correspondientes a la fecha arriba indicada conforme al tiempo que tengo de prestar mis servicios.", "ISO-8859-1", "UTF-8"));
         $this->Ln(20);
 
-        // Firma del empleado
         $this->Cell(0, 10, 'Firma del empleado: _________________________', 0, 1, 'L');
         $this->Ln(20);
 
-        // Firma del jefe
         $this->SetFont('Arial', 'B', 10);
         $this->Cell(0, 7, 'AUTORIZACIONES', 1, 1, 'C');
         $this->SetFont('Arial', '', 10);
@@ -80,7 +79,6 @@ class PDF extends FPDF
         $this->Cell(95, 10, 'RECURSOS HUMANOS: __________________', 1, 1, 'L');
         $this->Ln(10);
 
-        // Sección para uso exclusivo de recursos humanos
         $this->SetFont('Arial', 'B', 10);
         $this->Cell(0, 7, 'PARA USO EXCLUSIVO DE RECURSOS HUMANOS', 1, 1, 'C');
         $this->SetFont('Arial', '', 10);
@@ -92,11 +90,10 @@ class PDF extends FPDF
 
 if (isset($_GET['idvacacion'])) {
     $id_employee = $_GET['idvacacion'];
-    // Creación del PDF
+
     $pdf = new PDF();
     $pdf->AddPage();
 
-    // Consulta para obtener los datos del empleado
     $queryEmployee = "SELECT empleado, categoria, diatotal, disponible, fechaingreso FROM vacaciones WHERE idvacacion = $id_employee";
     $resultEmployee = mysqli_query($conecta, $queryEmployee);
 

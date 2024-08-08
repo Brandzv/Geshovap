@@ -18,7 +18,6 @@
         $monthsElapsed = date('m', $formatCurrentDate) - date('m', $formatEntryDate);
         $daysElapsed = date('d', $formatCurrentDate) - date('d', $formatEntryDate);
 
-        /* Ajusta la diferencia si es necesario (por si la fecha actual es anterior al día de ingreso) */
         if ($monthsElapsed < 0 || ($monthsElapsed === 0 && $daysElapsed < 0)) {
             $yearsElapsed--;
         }
@@ -45,10 +44,9 @@
         $dailySalary = $monthlySalary / 30;
         $VacationBonus = ($dailySalary * $vacationDays) / 4;
 
-        $query = "INSERT INTO vacaciones(empleado, categoria, diatotal, disponible, primavacacional, fechaingreso) VALUES ('$employee', '$category', '$vacationDays', '$availibleDays', '$VacationBonus', '$entryDate')";
+        $query = "INSERT INTO vacaciones(empleado, categoria, diatotal, disponible, primavacacional, salariomensual, fechaingreso) VALUES ('$employee', '$category', '$vacationDays', '$availibleDays', '$VacationBonus', '$monthlySalary', '$entryDate')";
         $resultado = mysqli_query($conecta, $query);
 
-        /* Inserta en la tabla pendientes */
         $roundedYears = $yearsElapsed;
 
         for ($i = 1; $i <= $roundedYears; $i++) {
