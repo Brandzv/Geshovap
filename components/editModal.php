@@ -2,7 +2,7 @@
     $query = "SELECT id, empleado FROM horarios";
     $resultado = $conecta->query($query);
 
-    // Almacena los resultados en un arreglo
+    // Almacena los resultados en un array
     $empleados = [];
     while ($row = $resultado->fetch_assoc()) {
         $empleados[$row['id']] = $row['empleado'];

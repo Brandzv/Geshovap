@@ -39,7 +39,7 @@
         if ($resultado_update) {
             $queryUpdate_status = "UPDATE solicitar SET status = ? WHERE empleadosolicitud LIKE ?";
             $stmtUpdate_status = mysqli_prepare($conecta, $queryUpdate_status);
-            $new_status = 1; // Cambia esto según tus necesidades (0 para visible, 1 para oculto)
+            $new_status = 1; // 0 para visible y 1 para oculto
             mysqli_stmt_bind_param($stmtUpdate_status, "is", $new_status, $employee_safe);
             $resultado_update_status = mysqli_stmt_execute($stmtUpdate_status);
 

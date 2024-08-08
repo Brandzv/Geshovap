@@ -2,7 +2,7 @@
     $query = "SELECT idvacacion, empleado FROM vacaciones";
     $resultado = $conecta->query($query);
 
-    // Almacena los resultados en un arreglo
+    // Almacena los resultados en un array
     $vacaciones = [];
     while ($row = $resultado->fetch_assoc()) {
         $vacaciones[$row['idvacacion']] = $row['empleado'];

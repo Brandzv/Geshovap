@@ -1,1 +1,9 @@
 /.vscode
+/.gitignore
+/Geshovap.zip
+/errors/horarios.sql
+/errors/pendientes.sql
+/errors/permisos.sql
+/errors/solicitar.sql
+/errors/usuarios.sql
+/errors/vacaciones.sql
