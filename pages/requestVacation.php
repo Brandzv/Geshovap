@@ -120,42 +120,39 @@ $result = mysqli_query($conecta, $query);
                             <svg class="bi"><use xlink:href="#arrow-left"/></svg> Atrás
                         </button>
                     </a>
-                    <div class="viewRequestTable">
-                        <form action="">
-                            <div>
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th class="pad-7-rem">Empleado</th>
-                                        <th class="pad-3-rem">Inicio</th>
-                                        <th class="pad-3-rem">Fin</th>
-                                        <th class="pad-3-rem">Acciones</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php while ($row = mysqli_fetch_array($result)) { 
-                                        $fechaInicio = date('d-m-Y', strtotime($row['iniciosolicitud']));
-                                        $fechaFin = date('d-m-Y', strtotime($row['finsolicitud']));
-                                    ?>
-                                    <tr>
-                                        <td class="center_content"><?php echo $row['empleadosolicitud']; ?></td>
-                                        <td class="center_content"><?php echo $fechaInicio; ?></td>
-                                        <td class="center_content"><?php echo $fechaFin; ?></td>
-                                        <td class="center_content">
-                                            <a class="decoration-none" href="../components/checkRequest.php?empleado=<?php echo $row['empleadosolicitud']; ?>&inicio=<?php echo $row['iniciosolicitud']; ?>&fin=<?php echo $row['finsolicitud']; ?>">
-                                                <svg class="bi"><use xlink:href="#check"/></svg>
-                                            </a>
-                                            <a style="padding: 0 10px;"></a>
-                                            <a href="../components/rejectRequest.php">
-                                                <svg class="bi"><use xlink:href="#ban"/></svg>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <?php } ?>
-                                </tbody>
-                            </table>
-                            </div>
-                        </form>
+
+                    <div class="table-responsive pad-15">
+                        <table class="table table--design">
+                            <thead>
+                                <tr>
+                                    <th class="pad-7-rem">Empleado</th>
+                                    <th class="pad-3-rem">Inicio</th>
+                                    <th class="pad-3-rem">Fin</th>
+                                    <th class="pad-3-rem">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php while ($row = mysqli_fetch_array($result)) { 
+                                    $fechaInicio = date('d-m-Y', strtotime($row['iniciosolicitud']));
+                                    $fechaFin = date('d-m-Y', strtotime($row['finsolicitud']));
+                                ?>
+                                <tr>
+                                    <td class="center_content"><?php echo $row['empleadosolicitud']; ?></td>
+                                    <td class="center_content"><?php echo $fechaInicio; ?></td>
+                                    <td class="center_content"><?php echo $fechaFin; ?></td>
+                                    <td class="center_content">
+                                        <a class="decoration-none" href="../components/checkRequest.php?empleado=<?php echo urlencode($row['empleadosolicitud']); ?>&inicio=<?php echo urlencode($row['iniciosolicitud']); ?>&fin=<?php echo urlencode($row['finsolicitud']); ?>">
+                                            <svg class="bi"><use xlink:href="#check"/></svg>
+                                        </a>
+                                        <a style="padding: 0 10px;"></a>
+                                        <a href="../components/rejectRequest.php">
+                                            <svg class="bi"><use xlink:href="#ban"/></svg>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <?php } ?>
+                            </tbody>
+                        </table>
                     </div>
                     <canvas class="my-4 w-100" id="myChart" width="900" height="262"></canvas>
                 </main>
