@@ -36,35 +36,35 @@ if (isset($_POST['updateSettingUser'])) {
         <title>Editar tabla usuarios | La Parroquia de Veracruz</title>
     </head>
     <body>
-                <form class="form" method= "POST">
-                    <h2 class="h2-form">Editar usuario</h2>
-                    
-                    <div class="form__item">
-                        <label class="form__label" for="user">Usuario:</label>
-                        <input class="form__input" type= "text" id="user" name="user-input" value= "<?php echo $idUser;?>" placeholder= "Actualiza usuario" autocomplete="off" autofocus required>
-                    </div>
+        <form class="form" method= "POST">
+            <h2 class="h2-form">Editar usuario</h2>
 
-                    <div class="form__item">
-                        <label for="name" class="form__label">Nombre:</label>
-                        <input class="form__input" type= "text" id="name" name= "name-input" value= "<?php echo $name;?>" placeholder= "Actualiza nombre" autocomplete="off" required>
-                    </div>
+            <div class="form__item">
+                <label class="form__label" for="userId">Usuario:</label>
+                <input class="form__input" type= "text" id="userId" name="user-input" value= "<?php echo $idUser;?>" placeholder= "Actualiza usuario" autocomplete="off" autofocus required>
+            </div>
 
-                    <div class="form__item">
-                        <label for="pass" class="form__label">Clave:</label>
-                        <input class="form__input" type= "text" id="pass" name= "pass-input" value= "<?php echo $pass;?>" placeholder= "Actualiza clave" autocomplete="off" required>
-                    </div>
+            <div class="form__item">
+                <label class="form__label" for="nameId">Nombre:</label>
+                <input class="form__input" type= "text" id="nameId" name= "name-input" value= "<?php echo $name;?>" placeholder= "Actualiza nombre" autocomplete="off" required>
+            </div>
 
-                    <div class="form__item">
-                        <label for="status" class="form__label">Estado:</label>
-                        <select class="form__input" id="status" name="status-input">
-                            <option value="1">Activo</option>
-                            <option value="0">Desactivo</option>
-                        </select>
-                    </div>
+            <div class="form__item">
+                <label class="form__label" for="passId">Clave:</label>
+                <input class="form__input" type= "text" id="passId" name= "pass-input" value= "<?php echo $pass;?>" placeholder= "Actualiza clave" autocomplete="off" required>
+            </div>
 
-                    <div class="form__item center-flex">
-                        <button class="button-general" name="updateSettingUser">Guardar cambios</button>
-                    </div>
-                </form>
+            <div class="form__item">
+                <label class="form__label" for="statusId">Estado:</label>
+                <select class="form__input" id="statusId" name="status-input">
+                    <option value="1">Activo</option>
+                    <option value="0">Desactivo</option>
+                </select>
+            </div>
+
+            <div class="form__item center-flex">
+                <button class="button-general" name="updateSettingUser">Guardar cambios</button>
+            </div>
+        </form>
     </body>
 </html>
