@@ -1,4 +1,6 @@
 <?php
+    require_once("../conexion.php");
+
     $query = "SELECT id, empleado FROM horarios";
     $resultado = $conecta->query($query);
 

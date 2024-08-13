@@ -1,4 +1,5 @@
 <?php
+    require_once("../conexion.php");
     $query = "SELECT idvacacion, empleado, diatotal, primavacacional FROM vacaciones";
     $resultado = $conecta->query($query);
 
