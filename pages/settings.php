@@ -5,11 +5,21 @@ require_once("../conexion.php");
 $queryUser = "SELECT idusuario, nombre, clave, estado FROM usuarios";
 $resultUser = mysqli_query($conecta, $queryUser);
 
-$queryVac = "SELECT empleado, categoria, diatotal, disponible, diausado, primavacacional, salariomensual, fechaingreso FROM vacaciones";
+$queryVac = "SELECT idvacacion, empleado, categoria, diatotal, disponible, diausado, primavacacional, salariomensual, fechaingreso FROM vacaciones";
 $resultVac = mysqli_query($conecta, $queryVac);
 
-$queryPend = "SELECT empleadopendiente, primavacacionalpendiente, añopendiente FROM pendientes";
+$queryPend = "SELECT idpendiente, empleadopendiente, primavacacionalpendiente, añopendiente FROM pendientes";
 $resultPend = mysqli_query($conecta, $queryPend);
+
+$employeeArray = array();
+
+while ($rowPend = mysqli_fetch_array($resultPend)) {
+    $employeePend = $rowPend['empleadopendiente'];
+    if (!isset($employeeArray[$employeePend])) {
+        $employeeArray[$employeePend] = array();
+    }
+    $employeeArray[$employeePend][] = $rowPend;
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -221,7 +231,7 @@ $resultPend = mysqli_query($conecta, $queryPend);
                                             <td class="center_content"><?php echo $rowVac['salariomensual'];?>
                                             <td class="center_content w-98"><?php echo $rowVac['fechaingreso'];?>
                                             <td class="center_content">
-                                                <a href="../pages/settingVacation.php" class="decoration-none">
+                                                <a class="decoration-none" href="../pages/settingVacation.php?id=<?php echo $rowVac['idvacacion'];?>">
                                                     <svg class="bi"><use xlink:href="#pencil-square"/></svg>
                                                 </a>
                                             </td>
@@ -245,18 +255,18 @@ $resultPend = mysqli_query($conecta, $queryPend);
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php while ($rowPend = mysqli_fetch_array($resultPend)) { ?>
+                                        <?php foreach ($employeeArray as $employeePend => $rows) { foreach ($rows as $rowPend) { ?>
                                         <tr>
                                             <td class="center_content"><?php echo $rowPend['empleadopendiente'];?></td>
                                             <td class="center_content"><?php echo $rowPend['primavacacionalpendiente'];?></td>
                                             <td class="center_content"><?php echo $rowPend['añopendiente'];?>
                                             <td class="center_content">
-                                                <a href="../pages/settingPending.php" class="decoration-none">
+                                                <a class="decoration-none" href="../pages/settingPending.php?id=<?php echo $rowPend['idpendiente'];?>">
                                                     <svg class="bi"><use xlink:href="#pencil-square"/></svg>
                                                 </a>
                                             </td>
                                         </tr>
-                                        <?php } ?>
+                                        <?php } } ?>
                                     </tbody>
                                 </table>
                             </div>
