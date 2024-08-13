@@ -165,7 +165,7 @@
                                                 <a class="decoration-none" href="../pages/pendingPayments.php?empleado=<?php echo urlencode($mostrar['empleado']); ?>">
                                                     <?php echo ($mostrar['primavacacional']); ?>
                                                     <?php if (mysqli_num_rows($result_pend) > 0): ?>
-                                                        <a class="edit-option" href="../pdf/vacaciones.php?idvacacion=<?php echo urlencode($mostrar['idvacacion']); ?>" target="_blank">
+                                                        <a class="edit-option" href="../pages/pendingPayments.php?empleado=<?php echo urlencode($mostrar['empleado']); ?>">
                                                             <svg class="bi"><use xlink:href="#exclamation-circle"/></svg>
                                                         </a>
                                                     <?php endif; ?>
