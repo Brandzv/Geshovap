@@ -36,7 +36,7 @@ if (isset($_POST['updateSettingPending'])) {
     </head>
     <body>
         <form class="form" method= "POST">
-            <h2 class="h2-form">Editar vacaciones</h2>
+            <h2 class="h2-form">Editar pendientes</h2>
 
             <div class="form__item">
                 <label class="form__label" for="employeeId">Empleado:</label>
