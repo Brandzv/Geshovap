@@ -341,6 +341,10 @@ main.table-responsive {
     margin: 0 0 0 20px;
 }
 
+.margin-bottom50 {
+    margin-bottom: 50px;
+}
+
 .decoration-none {
     text-decoration: none;
     color: #000;
