@@ -1,6 +1,6 @@
 <?php
-    include("../seguridad.php");
-    include("../conexion.php");
+    require_once("../seguridad.php");
+    require_once("../conexion.php");
 
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         $selectedEmployeeId = $_POST['id'];

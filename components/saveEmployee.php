@@ -1,7 +1,7 @@
 <?php
-	include("../seguridad.php");
-    include("../conexion.php");
-	
+	require_once("../seguridad.php");
+    require_once("../conexion.php");
+
 	/*Validación de datos por método POST*/
 	if (isset($_POST['save-submit'])) {
 		$employee = $_POST['employeesInput'];
