@@ -4,7 +4,7 @@ require_once('conexion.php');
 
 session_start();
 
-$user=utf8_encode($_SESSION["usuarioactual"]);
+$user=mb_convert_encoding(($_SESSION["usuarioactual"]), "ISO-8859-1", "UTF-8");
 
 $ensesion="UPDATE usuarios SET login=0 WHERE idusuario='$user'";
 
