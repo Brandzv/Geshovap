@@ -1,17 +1,24 @@
 <?php
     include("../seguridad.php");
     include("../conexion.php");
-	
-	/*Validación de datos por método POST*/
-	if (isset($_POST['save-submit'])) {
+
+    /*Validación de datos por método POST*/
+    if (isset($_POST['save-submit'])) {
         $userId = $_POST['addUserIdInput'];
         $userName = $_POST['addNameIdInput'];
-        $userPass =  hash('sha256', $_POST['addPassIdInput']);
+        $userPass = hash('sha256', $_POST['addPassIdInput']);
         $userStatus = $_POST['addStatusIdInput'];
 
-        $query = "INSERT INTO usuarios(idusuario, nombre, clave, estado) VALUES ('$userId', '$userName', '$userPass', '$userStatus')";
-        $result = mysqli_query($conecta, $query);
+        $checkQuery = "SELECT idusuario FROM usuarios WHERE idusuario = '$userId'";
+        $checkResult = mysqli_query($conecta, $checkQuery);
 
-        header("Location: ../pages/settings.php");
+        if (mysqli_num_rows($checkResult) > 0) {
+            header("Location: ../pages/settings.php");
+        } else {
+            $query = "INSERT INTO usuarios(idusuario, nombre, clave, estado) VALUES ('$userId', '$userName', '$userPass', '$userStatus')";
+            $result = mysqli_query($conecta, $query);
+
+            header("Location: ../pages/settings.php");
+        }
     }
 ?>

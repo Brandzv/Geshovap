@@ -18,7 +18,7 @@ if (isset($_GET['iduser'])) {
 }
 
 if (isset($_POST['updateSettingUser'])) {
-    $updateIdUser = $_POST['iduser-input'];
+    $updateIdUser = $_POST['userId-input'];
     $updateName = $_POST['name-input'];
 
     $updatePassTest = $_POST['pass-input'];
@@ -30,7 +30,7 @@ if (isset($_POST['updateSettingUser'])) {
 
     $updateStatus = $_POST['status-input'];
 
-    $queryUpdate = "UPDATE usuarios SET nombre = '$updateName', clave = '$updatePass', estado = '$updateStatus' WHERE idusuario = '$idUser'";
+    $queryUpdate = "UPDATE usuarios SET idusuario = '$updateIdUser', nombre = '$updateName', clave = '$updatePass', estado = '$updateStatus' WHERE idusuario = '$idUser'";
     mysqli_query($conecta, $queryUpdate);
 
     header("Location: ../pages/settings.php");
@@ -48,7 +48,7 @@ if (isset($_POST['updateSettingUser'])) {
 
             <div class="form__item">
                 <label class="form__label" for="userId">Usuario:</label>
-                <input class="form__input" type= "text" id="userId" name="user-input" value= "<?php echo $idUser;?>" placeholder= "Actualiza usuario" autocomplete="off" autofocus required>
+                <input class="form__input" type= "text" id="userId" name="userId-input" value= "<?php echo $idUser;?>" placeholder= "Actualiza usuario" autocomplete="off" autofocus required>
             </div>
 
             <div class="form__item">
