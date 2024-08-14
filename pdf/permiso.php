@@ -25,11 +25,6 @@ class PDF extends FPDF
     {
         $this->SetFont('Arial', 'B', 12);
 
-        // Título
-        $this->Cell(0, 10, 'SOLICITUD DE PERMISO', 0, 1, 'C');
-
-        $this->Ln(10);
-
         $this->SetFont('Arial', '', 12);
         $this->Cell(0, 10, 'A: ' . 'Recursos humanos', 0, 1);
         $this->Cell(0, 10, mb_convert_encoding('Yo: ' . $permiso['empleadopermiso'], "ISO-8859-1", "UTF-8"), 0, 1);
