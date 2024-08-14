@@ -130,13 +130,47 @@ $resultado = mysqli_query($conecta, $query);
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php while ($row = mysqli_fetch_array($resultado)) { ?>
+                                <?php 
+                                function traducirMes($mes) {
+                                    $meses = [
+                                        'January' => 'enero',
+                                        'February' => 'febrero',
+                                        'March' => 'marzo',
+                                        'April' => 'abril',
+                                        'May' => 'mayo',
+                                        'June' => 'junio',
+                                        'July' => 'julio',
+                                        'August' => 'agosto',
+                                        'September' => 'septiembre',
+                                        'October' => 'octubre',
+                                        'November' => 'noviembre',
+                                        'December' => 'diciembre'
+                                    ];
+                        
+                                    return $meses[$mes];
+                                }
+
+                                while ($row = mysqli_fetch_array($resultado)) {
+                                    $inicioPermiso = new DateTime($row['iniciopermiso']);
+                                    $finPermiso = new DateTime($row['finpermiso']);
+                            
+                                    // Formatear fechas
+                                    $diaInicio = $inicioPermiso->format('d');
+                                    $mesInicio = traducirMes($inicioPermiso->format('F'));
+                                    $añoInicio = $inicioPermiso->format('Y');
+                                    $inicioPermisoFormatted = "$diaInicio de $mesInicio del $añoInicio";
+
+                                    $diaFin = $finPermiso->format('d');
+                                    $mesFin = traducirMes($finPermiso->format('F'));
+                                    $añoFin = $finPermiso->format('Y');
+                                    $FinPermisoFormatted = "$diaFin de $mesFin del $añoFin";
+                                ?>
                                 <tr>
                                     <td class="center_content"><?php echo $row['empleadopermiso'];?></td>
                                     <td class="center_content"><?php echo $row['tipopermiso'];?></td>
                                     <td class="center_content"><?php echo $row['descripcionpermiso'];?></td>
-                                    <td class="center_content"><?php echo $row['iniciopermiso'];?></td>
-                                    <td class="center_content"><?php echo $row['finpermiso'];?></td>
+                                    <td class="center_content"><?php echo $inicioPermisoFormatted;?></td>
+                                    <td class="center_content"><?php echo $FinPermisoFormatted;?></td>
                                     <td class="center_content">
                                         <a class="decoration-none" href="../components/checkPermission.php?idpermiso=<?php echo $row['idpermiso']; ?>">
                                             <svg class="bi"><use xlink:href="#check"/></svg>

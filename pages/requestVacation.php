@@ -132,14 +132,45 @@ $result = mysqli_query($conecta, $query);
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php while ($row = mysqli_fetch_array($result)) { 
-                                    $fechaInicio = date('d-m-Y', strtotime($row['iniciosolicitud']));
-                                    $fechaFin = date('d-m-Y', strtotime($row['finsolicitud']));
+                                <?php 
+                                function traducirMes($mes) {
+                                        $meses = [
+                                            'January' => 'enero',
+                                            'February' => 'febrero',
+                                            'March' => 'marzo',
+                                            'April' => 'abril',
+                                            'May' => 'mayo',
+                                            'June' => 'junio',
+                                            'July' => 'julio',
+                                            'August' => 'agosto',
+                                            'September' => 'septiembre',
+                                            'October' => 'octubre',
+                                            'November' => 'noviembre',
+                                            'December' => 'diciembre'
+                                        ];
+                            
+                                        return $meses[$mes];
+                                    }
+                                while ($row = mysqli_fetch_array($result)) { 
+
+                                    $fechaInicio = new DateTime($row['iniciosolicitud']);
+                                    $fechaFin = new DateTime($row['finsolicitud']);
+
+                                    // Formatear fechas
+                                    $diaInicio = $fechaInicio->format('d');
+                                    $mesInicio = traducirMes($fechaInicio->format('F'));
+                                    $añoInicio = $fechaInicio->format('Y');
+                                    $fechaInicioFormatted = "$diaInicio de $mesInicio del $añoInicio";
+
+                                    $diaFin = $fechaFin->format('d');
+                                    $mesFin = traducirMes($fechaFin->format('F'));
+                                    $añoFin = $fechaFin->format('Y');
+                                    $fechaFinFormatted = "$diaFin de $mesFin del $añoFin";
                                 ?>
                                 <tr>
                                     <td class="center_content"><?php echo $row['empleadosolicitud']; ?></td>
-                                    <td class="center_content"><?php echo $fechaInicio; ?></td>
-                                    <td class="center_content"><?php echo $fechaFin; ?></td>
+                                    <td class="center_content"><?php echo $fechaInicioFormatted; ?></td>
+                                    <td class="center_content"><?php echo $fechaFinFormatted; ?></td>
                                     <td class="center_content">
                                         <a class="decoration-none" href="../components/checkRequest.php?empleado=<?php echo urlencode($row['empleadosolicitud']); ?>&inicio=<?php echo urlencode($row['iniciosolicitud']); ?>&fin=<?php echo urlencode($row['finsolicitud']); ?>">
                                             <svg class="bi"><use xlink:href="#check"/></svg>

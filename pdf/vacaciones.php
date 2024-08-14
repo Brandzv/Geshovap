@@ -28,28 +28,69 @@ class PDF extends FPDF
         // Datos del empleado
         $this->Cell(0, 7, mb_convert_encoding('DATOS DEL EMPLEADO', "ISO-8859-1", "UTF-8"), 1, 1, 'C');
 
+        function traducirMes($mes) {
+            $meses = [
+                'January' => 'enero',
+                'February' => 'febrero',
+                'March' => 'marzo',
+                'April' => 'abril',
+                'May' => 'mayo',
+                'June' => 'junio',
+                'July' => 'julio',
+                'August' => 'agosto',
+                'September' => 'septiembre',
+                'October' => 'octubre',
+                'November' => 'noviembre',
+                'December' => 'diciembre'
+            ];
+
+            return $meses[$mes];
+        }
+
+        $fechaIngreso = new DateTime($empleado['fechaingreso']);
+        $diaIngreso = $fechaIngreso->format('d');
+        $mesIngreso = traducirMes($fechaIngreso->format('F'));
+        $añoIngreso = $fechaIngreso->format('Y');
+        $fechaIngresoFormatted = "$diaIngreso de $mesIngreso del $añoIngreso";
+
+        $fechaActual = new DateTime();
+        $diaActual = $fechaActual->format('d');
+        $mesActual = traducirMes($fechaActual->format('F'));
+        $añoActual = $fechaActual->format('Y');
+        $fechaActualFormatted = "$diaActual de $mesActual del $añoActual";
+
         $this->SetFont('Arial', '', 10);
         $this->Cell(95, 7, mb_convert_encoding('EMPLEADO: ' . $empleado['empleado'], "ISO-8859-1", "UTF-8"), 1);
         $this->Cell(95, 7, mb_convert_encoding('CATEGORÍA: ' . $empleado['categoria'], "ISO-8859-1", "UTF-8"), 1, 1);
-        $this->Cell(95, 7, mb_convert_encoding('FECHA DE INGRESO: ' . date('d-m-Y', strtotime($empleado['fechaingreso'])), "ISO-8859-1", "UTF-8"), 1);
-        $this->Cell(95, 7, mb_convert_encoding('FECHA DE SOLICITUD: ' . date('d/m/Y'), "ISO-8859-1", "UTF-8"), 1, 1);
+        $this->Cell(95, 7, mb_convert_encoding('FECHA DE INGRESO: ' . $fechaIngresoFormatted, "ISO-8859-1", "UTF-8"), 1);
+        $this->Cell(95, 7, mb_convert_encoding('FECHA DE SOLICITUD: ' . $fechaActualFormatted, "ISO-8859-1", "UTF-8"), 1, 1);
         $this->Ln(5);
 
         // Año correspondiente
         $corresponding_year = empty($solicitud['iniciosolicitud']) ? '' : date('Y', strtotime($solicitud['iniciosolicitud']));
 
-        # Formatea a DateTime a partir de las fechas
+        // Formatea a DateTime a partir de las fechas
         $fechaInicio = new DateTime($solicitud['iniciosolicitud']);
         $fechaFin = new DateTime($solicitud['finsolicitud']);
-        # Calcula la diferencia en días
+        // Calcula la diferencia en días
         $intervalo = $fechaInicio->diff($fechaFin);
         $day_count = $intervalo->days;
         // Días solicitados
         $requested_days = empty($day_count) ? '' : $day_count;
 
+        $diaInicio = $fechaInicio->format('d');
+        $mesInicio = traducirMes($fechaInicio->format('F'));
+        $añoInicio = $fechaInicio->format('Y');
+        $fechaInicioFormatted = "$diaInicio de $mesInicio del $añoInicio";
+
+        $diaFin = $fechaFin->format('d');
+        $mesFin = traducirMes($fechaFin->format('F'));
+        $añoFin = $fechaFin->format('Y');
+        $fechaFinFormatted = "$diaFin de $mesFin del $añoFin";
+
         // Verificar y formatear fechas
-        $iniciosolicitud = empty($solicitud['iniciosolicitud']) ? '' : date('d/m/Y', strtotime($solicitud['iniciosolicitud']));
-        $finsolicitud = empty($solicitud['finsolicitud']) ? '' : date('d/m/Y', strtotime($solicitud['finsolicitud']));
+        $iniciosolicitud = empty($solicitud['iniciosolicitud']) ? '' : $fechaInicioFormatted;
+        $finsolicitud = empty($solicitud['finsolicitud']) ? '' : $fechaFinFormatted;
 
         // Datos de vacaciones
         $this->SetFont('Arial', 'B', 10);
