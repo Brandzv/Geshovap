@@ -396,3 +396,10 @@ td.pad-7-rem {
 .w-98 {
     min-width: 98px;
 }
+
+.truncate {
+    max-width: 300px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

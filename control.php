@@ -8,7 +8,7 @@
 	$password = $_POST['clave'];
 
 	$miuser = htmlentities($miusuario);
-	$miclave = sha1(htmlentities($password));
+	$miclave =  hash('sha256', $password);
 
 	$myusuario = "SELECT idusuario FROM usuarios WHERE idusuario = '$miuser'";
 	$validacion = mysqli_query($conecta, $myusuario);

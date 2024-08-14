@@ -193,7 +193,7 @@ while ($rowPend = mysqli_fetch_array($resultPend)) {
                                     <tr>
                                         <td class="center_content"><?php echo $rowUser['idusuario'];?></td>
                                         <td class="center_content"><?php echo $rowUser['nombre'];?></td>
-                                        <td class="center_content"><?php echo $rowUser['clave'];?>
+                                        <td class="center_content truncate"><?php echo $rowUser['clave'];?>
                                         <td class="center_content"><?php if ($rowUser['estado'] == 1) { echo "Activo"; } else { echo "Desactivado"; } ?>
                                         <td class="center_content">
                                             <a class="decoration-none" href="../pages/settingEditUser.php?iduser=<?php echo $rowUser['idusuario'];?>">

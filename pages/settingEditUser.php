@@ -20,7 +20,14 @@ if (isset($_GET['iduser'])) {
 if (isset($_POST['updateSettingUser'])) {
     $updateIdUser = $_POST['iduser-input'];
     $updateName = $_POST['name-input'];
-    $updatePass = $_POST['pass-input'];
+
+    $updatePassTest = $_POST['pass-input'];
+    if ($updatePassTest == $pass) {
+        $updatePass = $_POST['pass-input'];
+    } else {
+        $updatePass =  hash('sha256', $_POST['pass-input']);
+    }
+
     $updateStatus = $_POST['status-input'];
 
     $queryUpdate = "UPDATE usuarios SET nombre = '$updateName', clave = '$updatePass', estado = '$updateStatus' WHERE idusuario = '$idUser'";
