@@ -199,7 +199,7 @@ while ($rowPend = mysqli_fetch_array($resultPend)) {
                                             <a class="decoration-none" href="../pages/settingEditUser.php?iduser=<?php echo $rowUser['idusuario'];?>">
                                                 <svg class="bi"><use xlink:href="#pencil-square"/></svg>
                                             </a>
-                                            <a class="decoration-none" href="../pages/settingDeleteUser.php?iduser=<?php echo $rowUser['idusuario'];?>">
+                                            <a class="decoration-none" href="../components/settingDeleteUser.php?iduser=<?php echo $rowUser['idusuario'];?>">
                                                 <svg class="bi"><use xlink:href="#trash"/></svg>
                                             </a>
                                         </td>
