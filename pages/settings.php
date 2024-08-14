@@ -71,6 +71,10 @@ while ($rowPend = mysqli_fetch_array($resultPend)) {
             <symbol id="three-dots-vertical" viewBox="0 0 16 16">
                 <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
             </symbol>
+            <symbol id="plus-square" viewBox="0 0 16 16" class="symbol-fill">
+                <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+            </symbol>
             <symbol id="pencil-square" viewBox="0 0 16 16">
                 <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                 <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
@@ -168,14 +172,18 @@ while ($rowPend = mysqli_fetch_array($resultPend)) {
                     </div>
 
                     <fieldset class="fieldset-scrollable margin-bottom50" id="usuarios">
+                        <?php include("../components/settingAddUserModal.php"); ?>
                         <legend>Usuarios</legend>
-                        <div class="table-responsive pad-15">
+                        <div class="table-responsive pad-15 pad-top-0">
                             <table class="table">
+                                <button class="decoration-none" href="" data-bs-toggle="modal" data-bs-target="#addUserModal">
+                                    <svg class="bi"><use xlink:href="#plus-square"/></use></svg> <span class="color-white">Añadir</span>
+                                </button>
                                 <thead>
                                     <tr>
                                         <th class="center_content">Usuario</th>
                                         <th class="center_content">Nombre</th>
-                                        <th class="center_content">Contraseña</th>
+                                        <th class="center_content">Contraseña (Hasheada)</th>
                                         <th class="center_content">Estado</th>
                                         <th class="center_content"><svg class="bi"><use xlink:href="#three-dots-vertical"/></svg></th>
                                     </tr>
@@ -272,7 +280,7 @@ while ($rowPend = mysqli_fetch_array($resultPend)) {
                             </div>
                         </fieldset>
 
-                    <canvas class="my-4 w-100" id="myChart" width="900" height="341"></canvas>
+                    <canvas class="my-4 w-100" id="myChart" width="900" height="20"></canvas>
 
                 </main>
             </div>

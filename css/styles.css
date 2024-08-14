@@ -209,6 +209,10 @@ main.table-responsive {
     padding: 20px;
 }
 
+.pad-top-0 {
+    padding-top: 0 !important;
+}
+
 .h2-form {
     text-align: center;
     margin: 0;
@@ -356,6 +360,10 @@ main.table-responsive {
     margin: 0;
     font-weight: bold;
     padding-left: 10px;
+}
+
+.color-white {
+    color: #fff;
 }
 
 .viewRequestTable {
