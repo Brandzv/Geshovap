@@ -106,6 +106,10 @@ body {
     fill: #000;
 }
 
+.symbol-fill-red {
+    fill: #a30505 !important;
+}
+
 .bi {
     vertical-align: -0.125em;
     fill: currentColor;
