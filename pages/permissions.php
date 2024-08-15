@@ -13,7 +13,7 @@ $resultado = mysqli_query($conecta, $query);
         <!-- Custom styles for this template -->
         <link href="../css/dashboard.css" rel="stylesheet">
         <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
-        <title>Admin - Permisos | Café La Parroquia De Veracruz</title>
+        <title>Permisos | Café La Parroquia De Veracruz</title>
     </head>
     <body>
         <svg xmlns="http://www.w3.org/2000/svg" class="d-none">

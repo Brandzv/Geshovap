@@ -42,7 +42,7 @@ if (isset($_POST['updateSettingVacation'])) {
 <html lang="es">
     <head>
         <?php include('../components/header.php'); ?>
-        <title>Editar tabla usuarios | La Parroquia de Veracruz</title>
+        <title>Editar tabla vacaciones | La Parroquia de Veracruz</title>
     </head>
     <body>
         <form class="form" method= "POST">
