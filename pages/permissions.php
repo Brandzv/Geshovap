@@ -184,7 +184,7 @@ $resultado = mysqli_query($conecta, $query);
                                             <svg class="bi"><use xlink:href="#filetype-pdf"/></svg>
                                         </a>
                                     </td>
-                                </td>
+                                </tr>
                                 <?php
                                 }
                                 ?>
