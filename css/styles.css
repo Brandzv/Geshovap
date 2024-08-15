@@ -407,3 +407,56 @@ td.pad-7-rem {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.box-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 1px;
+    padding: 10px;
+    width: 100px;
+}
+
+.box-button {
+    margin-right: 1px;
+    padding: 3px 9px;
+    border-radius: 5px;
+}
+
+.box-content {
+    color: #000;
+    text-align: center;
+    white-space: pre;
+}
+
+.fieldset-opacity {
+    margin-top: 40px;
+    border: 2px solid;
+}
+
+@media (min-width: 672px) {
+    .fieldset-opacity {
+        margin-top: 10px;
+        border: 2px solid;
+    }
+}
+
+.section-button-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+.section-button {
+    padding: 4px 25px;
+    border-radius: 10px;
+}
