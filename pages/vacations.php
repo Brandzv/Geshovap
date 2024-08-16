@@ -43,6 +43,9 @@
                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
                 <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
             </symbol>
+            <symbol id="bell" viewBox="0 0 16 16" Class="symbol-fill">
+                <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2m.995-14.901a1 1 0 1 0-1.99 0A5 5 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901"/>
+            </symbol>
         </svg>
 
         <header class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow" data-bs-theme="dark">
@@ -122,9 +125,17 @@
                             <button type="button" data-bs-toggle="modal" data-bs-target="#deleteVacationModal">
                                 Eliminar
                             </button>
-                            <a class="display-content" href="../pages/requestVacation.php">
+                            <a class="display-content color-white" href="../pages/requestVacation.php">
                                 <button class="margin-left20" type="button">
                                     Solicitudes
+                                    <?php 
+                                        $query_soli = "SELECT idsolicitud FROM solicitar WHERE status = 0";
+                                        $result_soli = mysqli_query($conecta, $query_soli);
+                                        if (mysqli_num_rows($result_soli) > 0): ?>
+                                        <a class="edit-option" href="../pages/requestVacation.php">
+                                            <svg class="bi"><use xlink:href="#bell"/></svg>
+                                        </a>
+                                    <?php endif; ?>
                                 </button>
                             </a>
 
