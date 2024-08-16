@@ -33,12 +33,6 @@
             <symbol id="list" viewBox="0 0 16 16" Class="symbol-fill">
                 <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
             </symbol>
-            <symbol id="three-dots-vertical" viewBox="0 0 16 16">
-                <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
-            </symbol>
-            <symbol id="filetype-pdf" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM1.6 11.85H0v3.999h.791v-1.342h.803q.43 0 .732-.173.305-.175.463-.474a1.4 1.4 0 0 0 .161-.677q0-.375-.158-.677a1.2 1.2 0 0 0-.46-.477q-.3-.18-.732-.179m.545 1.333a.8.8 0 0 1-.085.38.57.57 0 0 1-.238.241.8.8 0 0 1-.375.082H.788V12.48h.66q.327 0 .512.181.185.183.185.522m1.217-1.333v3.999h1.46q.602 0 .998-.237a1.45 1.45 0 0 0 .595-.689q.196-.45.196-1.084 0-.63-.196-1.075a1.43 1.43 0 0 0-.589-.68q-.396-.234-1.005-.234zm.791.645h.563q.371 0 .609.152a.9.9 0 0 1 .354.454q.118.302.118.753a2.3 2.3 0 0 1-.068.592 1.1 1.1 0 0 1-.196.422.8.8 0 0 1-.334.252 1.3 1.3 0 0 1-.483.082h-.563zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638z"/>
-            </symbol>
             <symbol id="exclamation-circle" viewBox="0 0 16 16" Class="symbol-fill-red">
                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
                 <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
@@ -150,7 +144,6 @@
                                     <th class="width_cells">Disponibles</th>
                                     <th class="width_cells">Días usados</th>
                                     <th class="width_cells">Primas vacacionales</th>
-                                    <th><svg class="bi"><use xlink:href="#three-dots-vertical"/></svg></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -176,11 +169,6 @@
                                                             <svg class="bi"><use xlink:href="#exclamation-circle"/></svg>
                                                         </a>
                                                     <?php endif; ?>
-                                                </a>
-                                            </td>
-                                            <td class="center_content">
-                                                <a class="edit-option" href="../pdf/vacaciones.php?idvacacion=<?php echo urlencode($mostrar['idvacacion']); ?>" target="_blank">
-                                                    <svg class="bi"><use xlink:href="#filetype-pdf"/></svg>
                                                 </a>
                                             </td>
                                         </tr>

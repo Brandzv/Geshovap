@@ -49,6 +49,9 @@ $result = mysqli_query($conecta, $query);
             <symbol id="arrow-left" viewBox="0 0 16 16" Class="symbol-fill">
                 <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
             </symbol>
+            <symbol id="filetype-pdf" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM1.6 11.85H0v3.999h.791v-1.342h.803q.43 0 .732-.173.305-.175.463-.474a1.4 1.4 0 0 0 .161-.677q0-.375-.158-.677a1.2 1.2 0 0 0-.46-.477q-.3-.18-.732-.179m.545 1.333a.8.8 0 0 1-.085.38.57.57 0 0 1-.238.241.8.8 0 0 1-.375.082H.788V12.48h.66q.327 0 .512.181.185.183.185.522m1.217-1.333v3.999h1.46q.602 0 .998-.237a1.45 1.45 0 0 0 .595-.689q.196-.45.196-1.084 0-.63-.196-1.075a1.43 1.43 0 0 0-.589-.68q-.396-.234-1.005-.234zm.791.645h.563q.371 0 .609.152a.9.9 0 0 1 .354.454q.118.302.118.753a2.3 2.3 0 0 1-.068.592 1.1 1.1 0 0 1-.196.422.8.8 0 0 1-.334.252 1.3 1.3 0 0 1-.483.082h-.563zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638z"/>
+            </symbol>
         </svg>
         <header class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow" data-bs-theme="dark">
             <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="../pages/admin_home.php">La Parroquia de Veracruz</a>
@@ -151,8 +154,7 @@ $result = mysqli_query($conecta, $query);
                             
                                         return $meses[$mes];
                                     }
-                                while ($row = mysqli_fetch_array($result)) { 
-
+                                while ($row = mysqli_fetch_array($result)) {
                                     $fechaInicio = new DateTime($row['iniciosolicitud']);
                                     $fechaFin = new DateTime($row['finsolicitud']);
 
@@ -166,6 +168,11 @@ $result = mysqli_query($conecta, $query);
                                     $mesFin = traducirMes($fechaFin->format('F'));
                                     $añoFin = $fechaFin->format('Y');
                                     $fechaFinFormatted = "$diaFin de $mesFin del $añoFin";
+
+                                    $employeeName = $row['empleadosolicitud'];
+                                    $queryVac = "SELECT idvacacion FROM vacaciones WHERE empleado = '$employeeName'";
+                                    $resultVac = mysqli_query($conecta, $queryVac);
+                                    while ($mostrar = mysqli_fetch_array($resultVac)) {
                                 ?>
                                 <tr>
                                     <td class="center_content"><?php echo $row['empleadosolicitud']; ?></td>
@@ -175,13 +182,17 @@ $result = mysqli_query($conecta, $query);
                                         <a class="decoration-none" href="../components/checkRequest.php?empleado=<?php echo urlencode($row['empleadosolicitud']); ?>&inicio=<?php echo urlencode($row['iniciosolicitud']); ?>&fin=<?php echo urlencode($row['finsolicitud']); ?>">
                                             <svg class="bi"><use xlink:href="#check"/></svg>
                                         </a>
-                                        <a style="padding: 0 10px;"></a>
-                                        <a href="../components/rejectRequest.php">
+                                        <a style="padding: 0 6px;"></a>
+                                        <a class="decoration-none" href="../components/rejectRequest.php">
                                             <svg class="bi"><use xlink:href="#ban"/></svg>
+                                        </a>
+                                        <a style="padding: 0 6px;"></a>
+                                        <a class="edit-option" href="../pdf/vacaciones.php?idvacacion=<?php echo urlencode($mostrar['idvacacion']); ?>" target="_blank">
+                                            <svg class="bi"><use xlink:href="#filetype-pdf"/></svg>
                                         </a>
                                     </td>
                                 </tr>
-                                <?php } ?>
+                                <?php } } ?>
                             </tbody>
                         </table>
                     </div>
