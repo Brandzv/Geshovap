@@ -29,3 +29,20 @@ function formatearMontoEdit() {
         document.getElementById("editMontoFormateado").textContent = "";
     }
 }
+
+document.getElementById("pending-filter").addEventListener("change", function () {
+    var mostrarSoloPendientes = this.checked;
+    var filas = document.querySelectorAll("#miTabla tbody tr");
+
+    filas.forEach(function (fila) {
+        if (mostrarSoloPendientes) {
+            if (fila.classList.contains("pendiente")) {
+                fila.classList.remove("hidden");
+            } else {
+                fila.classList.add("hidden");
+            }
+        } else {
+            fila.classList.remove("hidden");
+        }
+    });
+});

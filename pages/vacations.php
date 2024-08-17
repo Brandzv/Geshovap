@@ -40,6 +40,9 @@
             <symbol id="bell" viewBox="0 0 16 16" Class="symbol-fill">
                 <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2m.995-14.901a1 1 0 1 0-1.99 0A5 5 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901"/>
             </symbol>
+            <symbol id="funnel" viewBox="0 0 16 16" Class="symbol-fill-dark">
+                <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5zm1 .5v1.308l4.372 4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5 0 0 1 .128-.334L13.5 3.308V2z"/>
+            </symbol>
         </svg>
 
         <header class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow" data-bs-theme="dark">
@@ -109,7 +112,7 @@
                     </div>
 
                     <div class="table-responsive pad-15">
-                        <table class="table table--design">
+                        <table class="table table--design" id="miTabla">
                             <button type="button" data-bs-toggle="modal" data-bs-target="#createVacationModal">
                                 Agregar
                             </button>
@@ -120,7 +123,7 @@
                                 Eliminar
                             </button>
                             <a class="display-content color-white" href="../pages/requestVacation.php">
-                                <button class="margin-left20" type="button">
+                                <button class="margin-left5" type="button">
                                     Solicitudes
                                     <?php 
                                         $query_soli = "SELECT idsolicitud FROM solicitar WHERE status = 0";
@@ -143,28 +146,41 @@
                                     <th class="width_cells">Días totales</th>
                                     <th class="width_cells">Disponibles</th>
                                     <th class="width_cells">Días usados</th>
-                                    <th class="width_cells">Primas vacacionales</th>
+                                    <th class="width_cells min-wc">Primas vacacionales
+                                        <div class="dropdown">
+                                            <button class="boton-elegante">
+                                                <svg class="bi"><use xlink:href="#funnel"/></svg>
+                                            </button>
+                                            <div class="dropdown-content">
+                                                <div class="dropdown-item">
+                                                    <label for="pending-filter">Pagos pendientes</label>
+                                                    <input type="checkbox" id="pending-filter">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php 
                                     $sql = "SELECT idvacacion, empleado, diatotal, disponible, diausado, primavacacional FROM vacaciones";
                                     $resultado = mysqli_query($conecta, $sql);
-                            
+                                
                                     while ($mostrar = mysqli_fetch_array($resultado)) {
                                         $employee = $mostrar['empleado'];
-                                        $query_pend = "SELECT * FROM pendientes WHERE empleadopendiente = '$employee'";
+                                        $query_pend = "SELECT idpendiente FROM pendientes WHERE empleadopendiente = '$employee'";
                                         $result_pend = mysqli_query($conecta, $query_pend);
+                                        $hasPending = mysqli_num_rows($result_pend) > 0;
                                         ?>
-                                        <tr>
-                                            <td class="center_content"><?php echo ($mostrar['empleado']); ?></td>
-                                            <td class="center_content"><?php echo ($mostrar['diatotal']); ?></td>
-                                            <td class="center_content"><?php echo ($mostrar['disponible']); ?></td>
-                                            <td class="center_content"><?php echo ($mostrar['diausado']); ?></td>
+                                        <tr class="<?php echo $hasPending ? 'pendiente' : 'no-pendiente'; ?>">
+                                            <td class="center_content"><?php echo htmlspecialchars($mostrar['empleado']); ?></td>
+                                            <td class="center_content"><?php echo htmlspecialchars($mostrar['diatotal']); ?></td>
+                                            <td class="center_content"><?php echo htmlspecialchars($mostrar['disponible']); ?></td>
+                                            <td class="center_content"><?php echo htmlspecialchars($mostrar['diausado']); ?></td>
                                             <td class="center_content">
                                                 <a class="decoration-none" href="../pages/pendingPayments.php?empleado=<?php echo urlencode($mostrar['empleado']); ?>">
-                                                    <?php echo ($mostrar['primavacacional']); ?>
-                                                    <?php if (mysqli_num_rows($result_pend) > 0): ?>
+                                                    <?php echo htmlspecialchars($mostrar['primavacacional']); ?>
+                                                    <?php if ($hasPending): ?>
                                                         <a class="edit-option" href="../pages/pendingPayments.php?empleado=<?php echo urlencode($mostrar['empleado']); ?>">
                                                             <svg class="bi"><use xlink:href="#exclamation-circle"/></svg>
                                                         </a>
