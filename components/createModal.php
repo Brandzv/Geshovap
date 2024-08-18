@@ -1,3 +1,20 @@
+<?php
+    require_once("../conexion.php");
+
+    $queryVac = "SELECT empleado FROM vacaciones";
+    $resultVac = mysqli_query($conecta, $queryVac);
+    
+    // Array con los empleados que ya están en la tabla horarios
+    $employeeSchedule = [];
+    $queryHor = "SELECT DISTINCT empleado FROM horarios";
+    $resultHor = mysqli_query($conecta, $queryHor);
+    
+    if ($resultHor->num_rows > 0) {
+        while ($row = mysqli_fetch_array($resultHor)) {
+            $employeeSchedule[] = $row['empleado'];
+        }
+    }
+?>
 <!-- Modal -->
 <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -10,7 +27,20 @@
                 <form action= "../components/saveEmployee.php" method="POST">
                     <div class="form__item">
                         <label class="form__label" for="employees">Empleado:</label>
-                        <input class="form__input" type="text" id="employees" name="employeesInput" placeholder="Nombre del empleado" autocomplete="off" required autofocus >
+                        <select class="form__input" name="employeesInput" id="lunes" required>
+                            <option value="" disabled selected>Selecciona un empleado</option>
+                            <?php
+                                if ($resultVac->num_rows > 0) {
+                                    while ($row = mysqli_fetch_array($resultVac)) {
+                                        $employee = $row['empleado'];
+                                        // Verificar si el empleado está en la lista de horarios
+                                        if (!in_array($employee, $employeeSchedule)) {
+                                            echo '<option value="' . htmlspecialchars($employee) . '">' . htmlspecialchars($employee) . '</option>';
+                                        }
+                                    }
+                                }
+                            ?>
+                        </select>
                     </div>
 
                     <div class="form__item">

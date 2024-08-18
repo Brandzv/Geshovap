@@ -47,6 +47,7 @@
         $query = "INSERT INTO vacaciones(empleado, categoria, diatotal, disponible, primavacacional, salariomensual, fechaingreso) VALUES ('$employee', '$category', '$vacationDays', '$availibleDays', '$VacationBonus', '$monthlySalary', '$entryDate')";
         $resultado = mysqli_query($conecta, $query);
 
+        // Inserta los datos en la tabla "pendientes" para cada año transcurrido
         $roundedYears = $yearsElapsed;
 
         for ($i = 1; $i <= $roundedYears; $i++) {
@@ -68,6 +69,41 @@
             $queryPendientes = "INSERT INTO pendientes(empleadopendiente, primavacacionalpendiente, añopendiente) VALUES ('$employee', '$annualVacationBonus', '$i')";
             $resultadoPendientes = mysqli_query($conecta, $queryPendientes);
         }
+
+        // Inserta los datos en la tabla "usuarios"
+        // Función para generar un nombre de usuario único
+        function generateUserName($employee, $formatEntryDate) {
+            $name = substr($employee, 0, 3); // Obtiene las primeras 3 letras del nombre del empleado
+            $name = str_replace(' ', '', $name); // Elimina espacios en blanco
+            $dateFormat = date('y', strtotime($formatEntryDate));
+            $user = $name . $dateFormat . rand(10, 99); // Añade números aleatorios
+            return strtolower($user); // Convierte a minúsculas
+        }
+
+        // Función para obtener las iniciales del nombre del empleado
+        function getInitials($employee) {
+            $nameEmployee = explode(' ', $employee); // Divide $employee en palabras con el espacio como delimitador
+            $initials = ''; // Array vacío para almacenar las iniciales
+            foreach ($nameEmployee as $name) {
+                // Obtiene la primera letra de cada palabra
+                $initials .= substr($name, 0, 1);
+            }
+            return strtoupper($initials); // Convierte a mayúsculas
+        }
+
+        // Función para generar una contraseña con iniciales y año actual
+        function generatePass($employee) {
+            $initialsPass = getInitials($employee);
+            $currentYear = date('Y');
+            return $initialsPass . $currentYear;
+        }
+        
+        // Generar nombre de usuario y contraseña
+        $userName = generateUserName($employee, $formatEntryDate);
+        $pass = hash('sha256',generatePass($employee)); // Iniciales del empleado en mayúsculas y el año actual
+
+        $queryUser = "INSERT INTO usuarios(idusuario, nombre, clave, estado) VALUES ('$userName', '$employee', '$pass' , '1')";
+        $resultUser = mysqli_query($conecta, $queryUser);
 
         header("Location: ../pages/vacations.php");
     }
