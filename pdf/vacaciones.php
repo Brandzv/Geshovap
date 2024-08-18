@@ -8,6 +8,7 @@ class PDF extends FPDF
     // Encabezado
     function Header()
     {
+        $this->Image('../img/logo.png', 10, 8, 18);
         $this->SetFont('Arial', 'B', 15);
         $this->Cell(0, 10, 'SOLICITUD DE VACACIONES', 0, 1, 'C');
         $this->Ln(10);

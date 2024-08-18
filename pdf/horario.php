@@ -8,8 +8,9 @@ class PDF extends FPDF
     // Encabezado de página
     function Header()
     {
+        $this->Image('../img/logo.png', 10, 8, 18);
         $this->SetFont('Arial', 'B', 18);
-        $this->Cell(0, 10, utf8_decode('Horario de Empleados'), 0, 1, 'C');
+        $this->Cell(0, 10, mb_convert_encoding('Horario de Empleados', "ISO-8859-1", "UTF-8"), 0, 1, 'C');
         $this->Ln(10);
     }
 
@@ -18,7 +19,7 @@ class PDF extends FPDF
     {
         $this->SetY(-15);
         $this->SetFont('Arial', 'I', 10);
-        $this->Cell(0, 10, utf8_decode('Café La Parroquia De Veracruz'), 0, 0, 'C');
+        $this->Cell(0, 10, mb_convert_encoding('Café La Parroquia De Veracruz', "ISO-8859-1", "UTF-8"), 0, 0, 'C');
     }
 
     // Función para ajustar el contenido de las celdas
@@ -36,7 +37,7 @@ class PDF extends FPDF
         $this->SetTextColor(255, 255, 255);
         $this->SetFont('Arial', 'B', 12);
         foreach ($header as $col) {
-            $this->Cell($colWidth, 10, utf8_decode($col), 1, 0, 'C', true); // Crea encabezado de tabla
+            $this->Cell($colWidth, 10, mb_convert_encoding($col, "ISO-8859-1", "UTF-8"), 1, 0, 'C', true); // Crea encabezado de tabla
         }
         $this->Ln();
 
@@ -49,9 +50,9 @@ class PDF extends FPDF
             $maxHeight = 0;
             $cellData = []; // Array para almacenar los datos de las celdas
             foreach ($row as $cell) {
-                $numLines = $this->NbLines($colWidth - 2 * $padding, utf8_decode($cell)); // Calcula el número de líneas necesarias para el texto
+                $numLines = $this->NbLines($colWidth - 2 * $padding, mb_convert_encoding($cell, "ISO-8859-1", "UTF-8")); // Calcula el número de líneas necesarias para el texto
                 $cellHeight = $lineHeight * $numLines + 2 * $padding; // Calcula la altura de la celda
-                $cellData[] = ['text' => utf8_decode($cell), 'height' => $cellHeight, 'numLines' => $numLines]; // Almacena el texto y la altura de la celda
+                $cellData[] = ['text' => mb_convert_encoding($cell, "ISO-8859-1", "UTF-8"), 'height' => $cellHeight, 'numLines' => $numLines]; // Almacena el texto y la altura de la celda
                 if ($cellHeight > $maxHeight) {
                     $maxHeight = $cellHeight; // Actualiza la altura máxima de la fila si es necesario
                 }
