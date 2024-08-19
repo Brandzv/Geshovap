@@ -14,7 +14,7 @@
     if ($resultUsuario) {
         $row = mysqli_fetch_assoc($resultUsuario);
 
-        $nameEmployee = $row['nombre'];
+        $nameEmployee = htmlspecialchars($row['nombre']);
     }
 
     $queryVacaciones = "SELECT empleado, diatotal, disponible, diausado FROM vacaciones WHERE empleado = '$nameEmployee'";
@@ -103,7 +103,7 @@
 
                 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                        <h1 class="h2">Bienvenid@!, <?php echo htmlspecialchars($nameEmployee); ?></h1>
+                        <h1 class="h2">¡Bienvenido/a, <?php echo $nameEmployee; ?>!</h1>
                     </div>
 
                     <section>
@@ -111,9 +111,11 @@
                             <h4>Días de vacaciones</h4>
                         </div>
 
+                        <?php include("../components/requestVacations.php"); ?>
+
                         <?php while ($mostrarVac = mysqli_fetch_array($resultVacaciones)) { ?>
                         <div class="box-container">
-                            <button class="box-button">Solicitar</button>
+                            <button class="box-button" data-bs-toggle="modal" data-bs-target="#ModalReqVac">Solicitar</button>
                             <div class="box">
                                 <div class="box-content">Total<?php echo "\n" . ($mostrarVac['diatotal']); ?></div>
                             </div>
@@ -144,8 +146,8 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php while ($mostrarHor = mysqli_fetch_array($resultHorario)) { ?>
                                     <tr>
-                                        <?php while ($mostrarHor = mysqli_fetch_array($resultHorario)) { ?>
                                         <td class="center_content"><?php echo $mostrarHor['lunes']; ?></td>
                                         <td class="center_content"><?php echo $mostrarHor['martes']; ?></td>
                                         <td class="center_content"><?php echo $mostrarHor['miercoles']; ?></td>
@@ -153,19 +155,17 @@
                                         <td class="center_content"><?php echo $mostrarHor['viernes']; ?></td>
                                         <td class="center_content"><?php echo $mostrarHor['sabado']; ?></td>
                                         <td class="center_content"><?php echo $mostrarHor['domingo']; ?></td>
-                                        <?php } ?>
                                     </tr>
+                                    <?php } ?>
                                 </tbody>
                             </table>
-                        </div>
-
-                        <div class="section-button-container">
-                            <button class="section-button">Solicitar cambio de horario</button>
                         </div>
                     </fieldset>
 
                     <fieldset class="fieldset-opacity">
                         <legend>Permiso</legend>
+
+                        <?php include("../components/requestPermission.php"); ?>
 
                         <div class="table-responsive pad-15">
                             <table class="table">
@@ -178,20 +178,20 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php while ($mostrarPer = mysqli_fetch_array($resultPermiso)) { ?>
                                     <tr>
-                                        <?php while ($mostrarPer = mysqli_fetch_array($resultPermiso)) { ?>
                                         <td class="center_content"><?php echo $mostrarPer['tipopermiso']; ?></td>
                                         <td class="center_content"><?php echo $mostrarPer['descripcionpermiso']; ?></td>
                                         <td class="center_content"><?php echo $mostrarPer['iniciopermiso']; ?></td>
                                         <td class="center_content"><?php echo $mostrarPer['finpermiso']; ?></td>
-                                        <?php } ?>
                                     </tr>
+                                    <?php } ?>
                                 </tbody>
                             </table>
                         </div>
 
                         <div class="section-button-container">
-                            <button class="section-button">Solicitar permiso</button>
+                            <button class="section-button" data-bs-toggle="modal" data-bs-target="#ModalReqPer">Solicitar permiso</button>
                         </div>
                     </fieldset>
 
