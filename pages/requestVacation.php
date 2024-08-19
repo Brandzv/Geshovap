@@ -182,7 +182,7 @@ $result = mysqli_query($conecta, $query);
                                             <svg class="bi"><use xlink:href="#check"/></svg>
                                         </a>
                                         <a style="padding: 0 6px;"></a>
-                                        <a class="decoration-none" href="../components/rejectRequest.php?empleado=<?php echo urlencode($row['empleadosolicitud']); ?>">
+                                        <a class="decoration-none" href="../components/rejectRequest.php?empleado=<?php echo urlencode($row['empleadosolicitud']); ?>&inicio=<?php echo urlencode($row['iniciosolicitud']); ?>&fin=<?php echo urlencode($row['finsolicitud']); ?>">
                                             <svg class="bi"><use xlink:href="#ban"/></svg>
                                         </a>
                                         <a style="padding: 0 6px;"></a>

@@ -3,12 +3,12 @@
     require_once("../conexion.php");
 
     $employee_req = $_GET['empleado'];
-    $inicio = $_GET['inicio'];
-    $fin = $_GET['fin'];
+    $startDate = $_GET['inicio'];
+    $endDate = $_GET['fin'];
 
     // Formatea a DateTime a partir de las fechas
-    $fechaInicio = new DateTime($inicio);
-    $fechaFin = new DateTime($fin);
+    $fechaInicio = new DateTime($startDate);
+    $fechaFin = new DateTime($endDate);
     // Calcula la diferencia en días
     $intervalo = $fechaInicio->diff($fechaFin);
     $day_count = $intervalo->days;
@@ -16,7 +16,7 @@
     // Sanea el valor de $employee_req
     $employee_safe = mysqli_real_escape_string($conecta, $employee_req);
 
-    $query = "SELECT idvacacion, empleado, diatotal, disponible, diausado, primavacacional FROM vacaciones WHERE empleado LIKE ?";
+    $query = "SELECT diatotal, disponible, diausado FROM vacaciones WHERE empleado LIKE ?";
     $stmt = mysqli_prepare($conecta, $query);
     mysqli_stmt_bind_param($stmt, "s", $employee_safe);
     mysqli_stmt_execute($stmt);
@@ -37,18 +37,14 @@
         $resultado_update = mysqli_stmt_execute($stmt_update);
 
         if ($resultado_update) {
-            $queryUpdate_status = "UPDATE solicitar SET status = ? WHERE empleadosolicitud LIKE ?";
+            $queryUpdate_status = "UPDATE solicitar SET status = ? WHERE empleadosolicitud = ? AND iniciosolicitud = ? AND finsolicitud = ?";
             $stmtUpdate_status = mysqli_prepare($conecta, $queryUpdate_status);
-            $new_status = 1; // 0 para visible y 1 para oculto
-            mysqli_stmt_bind_param($stmtUpdate_status, "is", $new_status, $employee_safe);
+            $new_status = 1; // 0 para visible, 1 aceptado y 2 rechazado
+            mysqli_stmt_bind_param($stmtUpdate_status, "isss", $new_status, $employee_safe, $startDate, $endDate);
             $resultado_update_status = mysqli_stmt_execute($stmtUpdate_status);
 
             header("Location: ../pages/requestVacation.php");
-        } else {
-            echo "Error al actualizar: " . mysqli_error($conecta);
         }
-    } else {
-        echo "Error en la consulta: " . mysqli_error($conecta);
     }
 
     mysqli_close($conecta);
