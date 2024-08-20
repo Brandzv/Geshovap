@@ -1,5 +1,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="cache-Control" content="no-cache, no-store, must-revalidate">
     <meta name="robots" content="nofollow">
     <meta name="author" content="Brandzv">
     <!-- <meta name="canonical" content="http://" /> -->
