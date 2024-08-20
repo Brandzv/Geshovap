@@ -237,7 +237,7 @@ while ($rowPend = mysqli_fetch_array($resultPend)) {
                                             <td class="center_content"><?php echo $rowVac['diausado'];?>
                                             <td class="center_content"><?php echo $rowVac['primavacacional'];?>
                                             <td class="center_content"><?php echo $rowVac['salariomensual'];?>
-                                            <td class="center_content w-98"><?php echo $rowVac['fechaingreso'];?>
+                                            <td class="center_content w-98"><?php echo date('d/m/Y', strtotime($rowVac['fechaingreso']));?>
                                             <td class="center_content">
                                                 <a class="decoration-none" href="../pages/settingVacation.php?id=<?php echo $rowVac['idvacacion'];?>">
                                                     <svg class="bi"><use xlink:href="#pencil-square"/></svg>
