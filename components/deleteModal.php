@@ -19,7 +19,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-            <form action="../components/deleteEmployee.php" method="get">
+            <form action="../actions/deleteEmployee.php" method="GET">
                 <label class="form__label" for="employees">Empleado:</label>
                 <select class="form__input" id="employees" name="id">
                     <option value="" disabled selected>Selecciona un empleado</option>

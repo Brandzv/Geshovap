@@ -7,7 +7,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body width-100">
-                <form action= "../components/saveVacations.php" method="POST">
+                <form action= "../actions/saveVacations.php" method="POST">
                     <div class="form__item">
                         <label class="form__label" for="employeesCreateVacation">Empleado:</label>
                         <input class="form__input" type="text" id="employeesCreateVacation" name="employeesInput" placeholder="Nombre del empleado" autocomplete="off" required autofocus >

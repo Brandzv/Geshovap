@@ -24,7 +24,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body width-100">
-                <form action= "../components/saveEmployee.php" method="POST">
+                <form action= "../actions/saveEmployee.php" method="POST">
                     <div class="form__item">
                         <label class="form__label" for="employees">Empleado:</label>
                         <select class="form__input" name="employeesInput" id="lunes" required>

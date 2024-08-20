@@ -18,7 +18,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="../components/editVacation.php" method="post">
+                <form action="../actions/editVacation.php" method="POST">
                     <div class="form__item">
                         <label class="form__label" for="editVacEmployees">Empleado:</label>
                         <select class="form__input" id="editVacEmployees" name="editVacEmployees">

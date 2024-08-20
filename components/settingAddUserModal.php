@@ -7,7 +7,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body width-100">
-                <form action="../components/settingAddUser.php" method="POST">
+                <form action="../actions/settingAddUser.php" method="POST">
                     <div class="form__item">
                         <label class="form__label" for="addUserId">Usuario:</label>
                         <input class="form__input" id="addUserId" name="addUserIdInput" placeholder="AdminJohn" autocomplete="off" required autofocus>
