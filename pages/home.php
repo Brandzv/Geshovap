@@ -26,6 +26,26 @@
 
     $queryPermiso = "SELECT empleadopermiso, tipopermiso, descripcionpermiso, iniciopermiso, finpermiso, status FROM permisos WHERE empleadopermiso = '$nameEmployee'";
     $resultPermiso = mysqli_query($conecta, $queryPermiso);
+
+    // Función para traducir el nombre del mes
+    function traducirMes($mes) {
+        $meses = [
+            'January' => 'enero',
+            'February' => 'febrero',
+            'March' => 'marzo',
+            'April' => 'abril',
+            'May' => 'mayo',
+            'June' => 'junio',
+            'July' => 'julio',
+            'August' => 'agosto',
+            'September' => 'septiembre',
+            'October' => 'octubre',
+            'November' => 'noviembre',
+            'December' => 'diciembre'
+        ];
+
+        return $meses[$mes];
+    }
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -209,24 +229,6 @@
                                 </thead>
                                 <tbody>
                                     <?php while ($mostrarPer = mysqli_fetch_array($resultPermiso)) { 
-                                        function traducirMes($mes) {
-                                            $meses = [
-                                                'January' => 'enero',
-                                                'February' => 'febrero',
-                                                'March' => 'marzo',
-                                                'April' => 'abril',
-                                                'May' => 'mayo',
-                                                'June' => 'junio',
-                                                'July' => 'julio',
-                                                'August' => 'agosto',
-                                                'September' => 'septiembre',
-                                                'October' => 'octubre',
-                                                'November' => 'noviembre',
-                                                'December' => 'diciembre'
-                                            ];
-
-                                            return $meses[$mes];
-                                        }
 
                                         $getStartPermission = $mostrarPer['iniciopermiso'];
                                         $getEndPermission = $mostrarPer['finpermiso'];

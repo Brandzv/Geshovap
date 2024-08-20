@@ -5,26 +5,6 @@
     $getEndRequest = isset($modalData['finsolicitud']) ? $modalData['finsolicitud'] : '';
     $status = isset($modalData['status']) ? $modalData['status'] : '';
 
-    // Función para traducir el nombre del mes
-    function traducirMes($mes) {
-        $meses = [
-            'January' => 'enero',
-            'February' => 'febrero',
-            'March' => 'marzo',
-            'April' => 'abril',
-            'May' => 'mayo',
-            'June' => 'junio',
-            'July' => 'julio',
-            'August' => 'agosto',
-            'September' => 'septiembre',
-            'October' => 'octubre',
-            'November' => 'noviembre',
-            'December' => 'diciembre'
-        ];
-
-        return $meses[$mes];
-    }
-
     $startRequest = new DateTime($getStartRequest);
     $StartDay = $startRequest->format('d');
     $StartMonth = traducirMes($startRequest->format('F'));
