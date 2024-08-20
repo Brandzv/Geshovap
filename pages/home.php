@@ -1,6 +1,7 @@
 <?php
     require_once("../seguridad.php");
     require_once("../conexion.php");
+    require_once("../components/clearExpiredPermits.php");
 
     if (isset($_SESSION['usuarioactual'])) {
         $currentUser = $_SESSION['usuarioactual'];
@@ -110,7 +111,7 @@
                     </div>
 
                     <section>
-                        <?php include("../components/requestVacations.php"); ?>
+                        <?php include("../components/formVacationsModal.php"); ?>
                         <?php if ($mostrarVac = mysqli_fetch_array($resultVacaciones)) { ?>
                         <div class="box-container">
                             <?php
@@ -203,15 +204,52 @@
                                         <th class="width_cells">Descripción</th>
                                         <th class="width_cells">Fecha de inicio</th>
                                         <th class="width_cells">Fecha final</th>
+                                        <th class="width_cells">Estado</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php while ($mostrarPer = mysqli_fetch_array($resultPermiso)) { ?>
+                                    <?php while ($mostrarPer = mysqli_fetch_array($resultPermiso)) { 
+                                        function traducirMes($mes) {
+                                            $meses = [
+                                                'January' => 'enero',
+                                                'February' => 'febrero',
+                                                'March' => 'marzo',
+                                                'April' => 'abril',
+                                                'May' => 'mayo',
+                                                'June' => 'junio',
+                                                'July' => 'julio',
+                                                'August' => 'agosto',
+                                                'September' => 'septiembre',
+                                                'October' => 'octubre',
+                                                'November' => 'noviembre',
+                                                'December' => 'diciembre'
+                                            ];
+
+                                            return $meses[$mes];
+                                        }
+
+                                        $getStartPermission = $mostrarPer['iniciopermiso'];
+                                        $getEndPermission = $mostrarPer['finpermiso'];
+
+                                        $startPermission = new DateTime($getStartPermission);
+                                        $endPermission = new DateTime($getEndPermission);
+
+                                        $startPerDay = $startPermission->format('d');
+                                        $startPerMonth = traducirMes($startPermission->format('F'));
+                                        $startPerYear = $startPermission->format('Y');
+                                        $startPermissionFormatted = "$startPerDay de $startPerMonth del $startPerYear";
+
+                                        $endPerDay = $endPermission->format('d');
+                                        $endPerMonth = traducirMes($endPermission->format('F'));
+                                        $endPerYear = $endPermission->format('Y');
+                                        $endPermissionFormatted = "$endPerDay de $endPerMonth del $endPerYear";
+                                    ?>
                                     <tr>
                                         <td class="center_content"><?php echo $mostrarPer['tipopermiso']; ?></td>
                                         <td class="center_content"><?php echo $mostrarPer['descripcionpermiso']; ?></td>
-                                        <td class="center_content"><?php echo $mostrarPer['iniciopermiso']; ?></td>
-                                        <td class="center_content"><?php echo $mostrarPer['finpermiso']; ?></td>
+                                        <td class="center_content"><?php echo $startPermissionFormatted; ?></td>
+                                        <td class="center_content"><?php echo $endPermissionFormatted; ?></td>
+                                        <td class="center_content"><?php if ($mostrarPer['status'] == 0) { echo "Pendiente"; } elseif ($mostrarPer['status'] == 1) { echo "Aceptado"; } elseif ($mostrarPer['status'] == 2) { echo "Rechazado"; } ?></td>
                                     </tr>
                                     <?php } ?>
                                 </tbody>
