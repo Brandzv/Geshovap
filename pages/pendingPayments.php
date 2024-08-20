@@ -143,7 +143,7 @@
                                     <td class="center_content"><?php echo $row['primavacacionalpendiente']; ?></td>
                                     <td class="center_content"><?php echo $row['añopendiente']; ?></td>
                                     <td class="center_content">
-                                        <a href="../components/checkPendingPayment.php?id=<?php echo $row['idpendiente'];?>">
+                                        <a href="../components/checkPendingPayment.php?id=<?php echo $row['idpendiente'];?>&empleado=<?php echo $row['empleadopendiente'];?>">
                                             <svg class="bi"><use xlink:href="#check"/></svg>
                                         </a>
                                     </td>
