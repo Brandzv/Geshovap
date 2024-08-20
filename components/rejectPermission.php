@@ -4,7 +4,7 @@
 
     $idPermission = $_GET['idpermiso'];
 
-    $query = "DELETE FROM permisos WHERE idpermiso = $idPermission";
+    $query = "UPDATE permisos SET status = 2 WHERE idpermiso = $idPermission";
     $result = mysqli_query($conecta, $query);
 
     header("Location: ../pages/permissions.php");

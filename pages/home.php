@@ -51,6 +51,9 @@
             <symbol id="list" viewBox="0 0 16 16" Class="symbol-fill">
                 <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
             </symbol>
+            <symbol id="bell" viewBox="0 0 16 16" Class="symbol-fill">
+                <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2m.995-14.901a1 1 0 1 0-1.99 0A5 5 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901"/>
+            </symbol>
         </svg>
         <header class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow" data-bs-theme="dark">
             <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="../pages/admin_home.php">La Parroquia de Veracruz</a>
@@ -107,13 +110,38 @@
                     </div>
 
                     <section>
+                        <?php include("../components/requestVacations.php"); ?>
+                        <?php if ($mostrarVac = mysqli_fetch_array($resultVacaciones)) { ?>
                         <div class="box-container">
+                            <?php
+                                $employeeReq = $mostrarVac['empleado'];
+                                $queryReq = "SELECT iniciosolicitud, finsolicitud, status FROM solicitar WHERE empleadosolicitud = ? AND status IN (1, 2)";
+                                if ($stmtReq = mysqli_prepare($conecta, $queryReq)) {
+                                    mysqli_stmt_bind_param($stmtReq, 's', $employeeReq);
+                                    mysqli_stmt_execute($stmtReq);
+                                    $resultReq = mysqli_stmt_get_result($stmtReq);
+                                    $solicitudes = mysqli_fetch_all($resultReq, MYSQLI_ASSOC);
+                                    mysqli_stmt_close($stmtReq);
+
+                                    if (count($solicitudes) > 0) {
+                                        $currentSolicitudIndex = isset($_SESSION['current_solicitud_index']) ? $_SESSION['current_solicitud_index'] : 0;
+                                        $currentSolicitud = $solicitudes[$currentSolicitudIndex];
+                                        ?>
+                                        <button type="button" class="notification-button" data-bs-toggle="modal" data-bs-target="#ModalStaVac"><svg class="bi"><use xlink:href="#bell"/></svg></button>
+                                        <?php
+                                        $modalData = [
+                                            'nombreempleado' => $nameEmployee,
+                                            'iniciosolicitud' => $currentSolicitud['iniciosolicitud'],
+                                            'finsolicitud' => $currentSolicitud['finsolicitud'],
+                                            'status' => $currentSolicitud['status']
+                                        ];
+                                        include("../components/statusVacModal.php");
+                                    }
+                                }
+                            ?>
                             <h4>Días de vacaciones</h4>
                         </div>
 
-                        <?php include("../components/requestVacations.php"); ?>
-
-                        <?php while ($mostrarVac = mysqli_fetch_array($resultVacaciones)) { ?>
                         <div class="box-container">
                             <button class="box-button" data-bs-toggle="modal" data-bs-target="#ModalReqVac">Solicitar</button>
                             <div class="box">
@@ -146,7 +174,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php while ($mostrarHor = mysqli_fetch_array($resultHorario)) { ?>
+                                    <?php if ($mostrarHor = mysqli_fetch_array($resultHorario)) { ?>
                                     <tr>
                                         <td class="center_content"><?php echo $mostrarHor['lunes']; ?></td>
                                         <td class="center_content"><?php echo $mostrarHor['martes']; ?></td>

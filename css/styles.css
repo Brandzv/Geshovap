@@ -110,6 +110,10 @@ body {
     fill: #a30505 !important;
 }
 
+.symbol-fill-green {
+    fill: #485c00;
+}
+
 .bi {
     vertical-align: -0.125em;
     fill: currentColor;
@@ -538,4 +542,26 @@ td.pad-7-rem {
 
 .dropdown:hover .dropdown-content {
     display: block;
+}
+
+.notification-button {
+    margin-right: 5px;
+    border-radius: 10px;
+}
+
+.modal__important {
+    color: #000;
+    font-weight: bold;
+}
+
+.modal__text {
+    color: #000;
+}
+
+.modal___green {
+    color: #119909;
+}
+
+.modal___red {
+    color: #aa2207;
 }
