@@ -50,12 +50,12 @@ if (isset($_POST['updateSettingVacation'])) {
 
             <div class="form__item">
                 <label class="form__label" for="employeeId">Empleado:</label>
-                <input class="form__input" type= "text" id="employeeId" name="employee-input" value= "<?php echo $employee;?>" placeholder= "Actualiza empleado" autocomplete="off" autofocus required>
+                <input class="form__input" type= "text" id="employeeId" name="employee-input" value= "<?php echo $employee;?>" placeholder= "Actualiza empleado" autocomplete="off" readonly required>
             </div>
 
             <div class="form__item">
                 <label class="form__label" for="categoryId">Categoría:</label>
-                <input class="form__input" type= "text" id="categoryId" name= "category-input" value= "<?php echo $category;?>" placeholder= "Actualiza categoría" autocomplete="off" required>
+                <input class="form__input" type= "text" id="categoryId" name= "category-input" value= "<?php echo $category;?>" placeholder= "Actualiza categoría" autocomplete="off" autofocus required>
             </div>
 
             <div class="form__item">
@@ -70,7 +70,7 @@ if (isset($_POST['updateSettingVacation'])) {
 
             <div class="form__item">
                 <label class="form__label" for="usedDayId">Días usados:</label>
-                <input class="form__input" type= "text" id="usedDayId" name="usedDay-input" value= "<?php echo $usedDay;?>" placeholder= "Actualiza días usados" autocomplete="off" autofocus required>
+                <input class="form__input" type= "text" id="usedDayId" name="usedDay-input" value= "<?php echo $usedDay;?>" placeholder= "Actualiza días usados" autocomplete="off" required>
             </div>
 
             <div class="form__item">
@@ -85,7 +85,7 @@ if (isset($_POST['updateSettingVacation'])) {
 
             <div class="form__item">
                 <label class="form__label" for="dateEntryId">Fecha de ingreso:</label>
-                <input class="form__input" type= "text" id="dateEntryId" name= "dateEntry-input" value= "<?php echo $dateEntry;?>" placeholder= "Actualiza fecha de ingreso" autocomplete="off" required>
+                <input class="form__input" type= "date" id="dateEntryId" name= "dateEntry-input" value= "<?php echo $dateEntry;?>" placeholder= "Actualiza fecha de ingreso" autocomplete="off" required>
             </div>
 
             <div class="form__item center-flex">

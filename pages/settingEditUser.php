@@ -53,7 +53,7 @@ if (isset($_POST['updateSettingUser'])) {
 
             <div class="form__item">
                 <label class="form__label" for="nameId">Nombre:</label>
-                <input class="form__input" type= "text" id="nameId" name= "name-input" value= "<?php echo $name;?>" placeholder= "Actualiza nombre" autocomplete="off" required>
+                <input class="form__input" type= "text" id="nameId" name= "name-input" value= "<?php echo $name;?>" placeholder= "Actualiza nombre" autocomplete="off" readonly required>
             </div>
 
             <div class="form__item">

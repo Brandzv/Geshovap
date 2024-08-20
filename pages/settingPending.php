@@ -40,12 +40,12 @@ if (isset($_POST['updateSettingPending'])) {
 
             <div class="form__item">
                 <label class="form__label" for="employeeId">Empleado:</label>
-                <input class="form__input" type= "text" id="employeeId" name="employee-input" value= "<?php echo $employeePend;?>" placeholder= "Actualiza nombre de empleado" autocomplete="off" autofocus required>
+                <input class="form__input" type= "text" id="employeeId" name="employee-input" value= "<?php echo $employeePend;?>" placeholder= "Actualiza nombre de empleado" autocomplete="off" readonly required>
             </div>
 
             <div class="form__item">
                 <label class="form__label" for="vacationBonusId">Prima vacacional:</label>
-                <input class="form__input" type= "text" id="vacationBonusId" name= "vacationBonus-input" value= "<?php echo $vacationBonusPend;?>" placeholder= "Actualiza prima vacacional" autocomplete="off" required>
+                <input class="form__input" type= "text" id="vacationBonusId" name= "vacationBonus-input" value= "<?php echo $vacationBonusPend;?>" placeholder= "Actualiza prima vacacional" autocomplete="off" autofocus required>
             </div>
 
             <div class="form__item">
