@@ -196,7 +196,7 @@
                         </table>
                     </div>
 
-                    <canvas class="my-4 w-100" id="myChart" width="900" height="284"></canvas>
+                    <canvas class="my-4 w-100" id="myChart" width="900" height="282"></canvas>
 
                 </main>
             </div>

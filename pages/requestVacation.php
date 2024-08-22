@@ -201,7 +201,7 @@ $result = mysqli_query($conecta, $query);
                             </tbody>
                         </table>
                     </div>
-                    <canvas class="my-4 w-100" id="myChart" width="900" height="262"></canvas>
+                    <canvas class="my-4 w-100" id="myChart" width="900" height="266"></canvas>
                 </main>
             </div>
         </div>
