@@ -23,7 +23,7 @@
                     </div>
 
                     <div class="form__item">
-                        <label class="form__label" for="endDatePermission">Fecha de fin:</label>
+                        <label class="form__label" for="endDatePermission">Fecha de finalización:</label>
                         <input type="date" class="form__input" id="endDatePermission" name="endDatePermissionInput">
                     </div>
                     <div class="modal-footer">
