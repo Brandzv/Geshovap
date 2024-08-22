@@ -123,8 +123,14 @@ $result = mysqli_query($conecta, $query);
                         </button>
                     </a>
 
-                    <div class="table-responsive pad-15">
+                    <div class="table-responsive pad-10-20">
                         <table class="table table--design">
+
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#createRequestModal">
+                                Agregar
+                            </button>
+                            <?php include ("../components/createRequestModal.php"); ?>
+
                             <thead>
                                 <tr>
                                     <th class="pad-7-rem">Empleado</th>

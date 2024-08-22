@@ -1,5 +1,6 @@
 <?php require_once("../seguridad.php");?>
 <?php require_once("../conexion.php");?>
+<?php require("../components/clearExpiredRequest.php");?>
 <?php require("../components/updateData.php");?>
 <!DOCTYPE html>
 <html lang="es">
