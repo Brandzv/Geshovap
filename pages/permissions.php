@@ -1,6 +1,7 @@
 <?php
 require_once("../seguridad.php");
 require_once("../conexion.php");
+require("../components/clearExpiredPermits.php");
 
 $query = "SELECT idpermiso, empleadopermiso, tipopermiso, descripcionpermiso, iniciopermiso, finpermiso FROM permisos WHERE status = 0";
 $resultado = mysqli_query($conecta, $query);
@@ -117,8 +118,13 @@ $resultado = mysqli_query($conecta, $query);
                         <h1 class="h2">Permisos</h1>
                     </div>
 
-                    <div class="table-responsive pad-15">
+                    <div class="table-responsive pad-10-20">
                         <table class="table">
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#createPermissionModal">
+                                Agregar
+                            </button>
+                            <?php include ("../components/createPermissionModal.php"); ?>
+
                             <thead>
                                 <tr>
                                     <th class="center_content">Empleado</th>
