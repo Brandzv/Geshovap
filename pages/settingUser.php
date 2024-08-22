@@ -28,7 +28,7 @@ if (isset($_POST['updateSettingUser'])) {
         $updatePass = hash('sha256', $_POST['pass-input']);
     }
 
-    $updateStatus = $_POST['status-input'];
+    $updateStatus = $status;
 
     // Actualizar usuario en la base de datos
     $queryUpdate = "UPDATE usuarios SET idusuario = '$updateIdUser', nombre = '$updateName', clave = '$updatePass', estado = '$updateStatus' WHERE idusuario = '$idUser'";
