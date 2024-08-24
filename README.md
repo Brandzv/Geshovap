@@ -26,7 +26,7 @@ información de los empleados, lo que facilita su consulta.
 
 ## Capturas de pantalla
 
-![Login](https://raw.githubusercontent.com/Brandzv/ResourceVault/main/geshovap/658532978651.jpg?token=GHSAT0AAAAAACWMFZCRK2VN7WON2AY66BE6ZWJPOEQ)
+![Login](https://raw.githubusercontent.com/Brandzv/ResourceVault/main/geshovap/658532978651.jpg?token=GHSAT0AAAAAACWMFZCQUK6LU6ADJQOBZG7CZWJPT6Q)
 ![vacaciones](https://raw.githubusercontent.com/Brandzv/ResourceVault/main/geshovap/986167452345.jpg?token=GHSAT0AAAAAACWMFZCQBZMDIC4FLYWC5NGSZWJPP5Q)
 ![horario](https://raw.githubusercontent.com/Brandzv/ResourceVault/main/geshovap/737435675678.jpg?token=GHSAT0AAAAAACWMFZCRBPDDINK5JJFYOHNSZWJPOTA)
 ![panelEmpleadoMovil](https://raw.githubusercontent.com/Brandzv/ResourceVault/main/geshovap/856345642354.jpg?token=GHSAT0AAAAAACWMFZCR5XAO3TSTP2I7QJPCZWJPPBQ)
