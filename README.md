@@ -4,6 +4,17 @@ Es una aplicación web que tiene como objetivo mejorar la eficiencia en la asign
 de horarios, gestión de vacaciones y permisos, cómodamente y centralizando la
 información de los empleados, lo que facilita su consulta.
 
+<details>
+<summary>Contenido</summary>
+
+-   [Características](#características)
+-   [Capturas de pantalla](#capturas-de-pantalla)
+-   [Stack](#stack)
+-   [Instalación](#instalación)
+-   [Uso](#uso)
+
+</details>
+
 ## Características
 
 -   **Asignación de Horarios:** Permite ajustes de horarios de trabajo de manera cómoda.
@@ -25,7 +36,7 @@ información de los empleados, lo que facilita su consulta.
 [![JavaScript][js-badge]][js-url]
 [![Bootstrap][bootstrap-badge]][bootstrap-url]
 [![PHP][php-badge]][php-url]
-[![MySQL][mysql-badge]][mysql-url]
+[![MariaDB][mariadb-badge]][mariadb-url]
 [![FPDF][fpdf-badge]][fpdf-url]
 
 [html-url]: https://developer.mozilla.org/en-US/docs/Web/HTML
@@ -37,30 +48,30 @@ información de los empleados, lo que facilita su consulta.
 [bootstrap-url]: https://getbootstrap.com/
 [bootstrap-badge]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [php-url]: https://www.php.net/
-[php-badge]: https://img.shields.io/badge/PHP-7.4-777BB4?style=for-the-badge&logo=php&logoColor=white
-[mysql-url]: https://www.mysql.com/
-[mysql-badge]: https://img.shields.io/badge/MySQL-5.7-4479A1?style=for-the-badge&logo=mysql&logoColor=white
+[php-badge]: https://img.shields.io/badge/PHP-8.2.12-777BB4?style=for-the-badge&logo=php&logoColor=white
+[mariadb-url]: https://www.mysql.com/
+[mariadb-badge]: https://img.shields.io/badge/MariaDB-10.4.32-4479A1?style=for-the-badge&logo=mariadb&logoColor=white
 [fpdf-url]: http://www.fpdf.org/
-[fpdf-badge]: https://img.shields.io/badge/FPDF-1.8-blue?style=for-the-badge&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAAA3NCSVQICAjb4U/gAAAAFElEQVQ4T2NkYGB8Y9JwAHZAPACMggAAw4C2RCZAAAAABJRU5ErkJggg==&logoColor=white
+[fpdf-badge]: https://img.shields.io/badge/FPDF-1.86-blue?style=for-the-badge&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAAA3NCSVQICAjb4U/gAAAAFElEQVQ4T2NkYGB8Y9JwAHZAPACMggAAw4C2RCZAAAAABJRU5ErkJggg==&logoColor=white
 
 ## Instalación
 
-1. **Clona el repositorio**
+1. **Clona el repositorio:**
 
 ```bash
 git clone https://github.com/Brandzv/Geshovap.git
 ```
 
-2. **Configura un servidor local**
+2. **Configura un servidor local:**
    Asegúrate de tener configurado un servidor local con PHP y MySQL (por ejemplo, XAMPP, MAMP o LAMP).
 
-3. **Importa la base de datos**
+3. **Importa la base de datos:**
    Utiliza phpMyAdmin o la terminal de MySQL para importar el archivo _`geshovap_bd.sql`_.
 
-4. **Configura las credenciales**
+4. **Configura las credenciales:**
    En caso de ser necesario, actualiza el archivo `conexion.php` con las credenciales correctas de la base de datos.
 
-5. **Accede a la aplicación**
+5. **Accede a la aplicación:**
    Abre el navegador e ingresa a la aplicación a través de la URL proporcionada por el servidor local.
 
 ## Uso
@@ -68,10 +79,10 @@ git clone https://github.com/Brandzv/Geshovap.git
 1. **Acceso:** Inicia sesión en la aplicación web con las credenciales correctas.
 2. **Para Administradores:**
 
--   Asigna el horario de trabajo de los empleados.
--   Administra las solicitudes y el seguimiento de las vacaciones y los permisos.
+    - Asigna el horario de trabajo de los empleados.
+    - Administra las solicitudes y el seguimiento de las vacaciones y los permisos.
 
 3. **Para Empleados:**
 
--   Visualiza su horario asignado y los detalles relevantes.
--   Solicitar días de vacaciones o permisos desde su panel personal.
+    - Visualiza su horario asignado y los detalles relevantes.
+    - Solicitar días de vacaciones o permisos desde su panel personal.
