@@ -24,10 +24,10 @@ información de los empleados, lo que facilita su consulta.
 
 ## Capturas de pantalla
 
-![Login](https://github.com/Brandzv/ResourceVault/blob/main/geshovap/658532978651.png)
-![vacaciones](https://github.com/Brandzv/ResourceVault/blob/main/geshovap/986167452345.png)
-![horario](https://github.com/Brandzv/ResourceVault/blob/main/geshovap/737435675678.png)
-![panelEmpleadoMovil](https://github.com/Brandzv/ResourceVault/blob/main/geshovap/856345642354.png)
+![Login](https://github.com/Brandzv/ResourceVault/blob/main/geshovap/658532978651.jpg)
+![vacaciones](https://github.com/Brandzv/ResourceVault/blob/main/geshovap/986167452345.jpg)
+![horario](https://github.com/Brandzv/ResourceVault/blob/main/geshovap/737435675678.jpg)
+![panelEmpleadoMovil](https://github.com/Brandzv/ResourceVault/blob/main/geshovap/856345642354.jpg)
 
 ## Stack
 
