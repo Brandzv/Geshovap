@@ -4,7 +4,11 @@ Es una aplicación web que tiene como objetivo mejorar la eficiencia en la asign
 de horarios, gestión de vacaciones y permisos, cómodamente y centralizando la
 información de los empleados, lo que facilita su consulta.
 
-![Geshovap](https://github.com/Brandzv/Geshovap/blob/main/img/ReadMeResource/984729654.jpeg)
+<div align="center">
+   <a href="https://github.com/Brandzv/Geshovap">
+     <img width="150px" src="https://github.com/Brandzv/Geshovap/blob/main/img/logo.png" alt="Logo" />
+   </a>
+</div>
 
 <details>
 <summary>Contenido</summary>
@@ -14,6 +18,7 @@ información de los empleados, lo que facilita su consulta.
 -   [Stack](#stack)
 -   [Instalación](#instalación)
 -   [Uso](#uso)
+-   [Desarrollado para](#desarrollado-para)
 
 </details>
 
@@ -88,3 +93,7 @@ git clone https://github.com/Brandzv/Geshovap.git
 
     - Visualiza su horario asignado y los detalles relevantes.
     - Solicitar días de vacaciones o permisos desde su panel personal.
+
+## Desarrollado para
+
+Este proyecto fue desarrollado durante mis practicas en [**La Parroquia De Veracruz, Sucursal Tuxpan Ver.**](https://laparroquiadeveracruz.com/)
