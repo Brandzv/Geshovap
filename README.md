@@ -4,7 +4,7 @@ Es una aplicación web que tiene como objetivo mejorar la eficiencia en la asign
 de horarios, gestión de vacaciones y permisos, cómodamente y centralizando la
 información de los empleados, lo que facilita su consulta.
 
-![Geshovap](https://github.com/Brandzv/Geshovap/tree/main/img/ReadMeResource/984729654.jpeg)
+![Geshovap](https://github.com/Brandzv/Geshovap/blob/main/img/ReadMeResource/984729654.jpeg)
 
 <details>
 <summary>Contenido</summary>
@@ -26,10 +26,10 @@ información de los empleados, lo que facilita su consulta.
 
 ## Capturas de pantalla
 
-![Login](https://github.com/Brandzv/Geshovap/tree/main/img/ReadMeResource/658532978651.jpg)
-![vacaciones](https://github.com/Brandzv/Geshovap/tree/main/img/ReadMeResource/986167452345.jpg)
-![horario](https://github.com/Brandzv/Geshovap/tree/main/img/ReadMeResource/737435675678.jpg)
-![panelEmpleadoMovil](https://github.com/Brandzv/Geshovap/tree/main/img/ReadMeResource/856345642354.jpg)
+![Login](https://github.com/Brandzv/Geshovap/blob/main/img/ReadMeResource/658532978651.jpg)
+![vacaciones](https://github.com/Brandzv/Geshovap/blob/main/img/ReadMeResource/986167452345.jpg)
+![horario](https://github.com/Brandzv/Geshovap/blob/main/img/ReadMeResource/737435675678.jpg)
+![panelEmpleadoMovil](https://github.com/Brandzv/Geshovap/blob/main/img/ReadMeResource/856345642354.jpg)
 
 ## Stack
 
